@@ -4,13 +4,15 @@
 <meta name="description" content="Planillas Excel de cómputo y presupuesto de obra y manuales técnicos paso a paso. Comprá por WhatsApp, pagás con Mercado Pago.">
 <link rel="canonical" href="https://tienda.proyectamas.com.ar/"><link rel="icon" type="image/png" href="https://www.proyectamas.com.ar/assets/icon/favicon-192.png">
 <meta property="og:title" content="Tienda Proyecta +"><meta property="og:image" content="https://www.proyectamas.com.ar/assets/productos/suite.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 <script src="https://www.proyectamas.com.ar/js/promos.js"></script>
 <style>
 :root{--ink:#122e54;--blue:#1e4982;--yellow:#ffe500;--paper:#f6f3ec;--muted:#5b6475}
 *{box-sizing:border-box;margin:0}body{background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}
 a{color:inherit}
 header{background:var(--ink);color:#fff;padding:18px 16px}header .w{max-width:1040px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.logo{font-weight:900;letter-spacing:.02em;font-size:22px;text-decoration:none}.logo span{color:var(--yellow)}
+.logo{font-family:"Bangers",cursive;letter-spacing:.04em;font-size:34px;line-height:1;text-decoration:none;white-space:nowrap}.logo span{color:var(--yellow)}
+.cinta{background:#000;color:#fff;font-size:14px;overflow:hidden;white-space:nowrap}.cinta>div{display:inline-block;padding:7px 0;animation:deslizar 28s linear infinite}.cinta span{margin:0 28px}.cinta b{color:var(--yellow)}@keyframes deslizar{to{transform:translateX(-50%)}}
 header a.ws{background:var(--yellow);color:var(--ink);text-decoration:none;font-weight:800;padding:9px 16px;border-radius:999px;font-size:14px;white-space:nowrap}
 .promo{display:none;background:var(--yellow);text-align:center;font-weight:800;padding:10px 16px;font-size:14px}
 main{max-width:1040px;margin:auto;padding:40px 16px 60px}
@@ -25,10 +27,12 @@ h1{font-size:clamp(30px,5vw,48px);line-height:1.05;letter-spacing:-.02em}
 .card b{display:inline-block;margin-top:16px;background:var(--ink);color:var(--yellow);padding:12px 20px;border-radius:999px}
 .como{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
 .como div{background:#fff;border-radius:16px;padding:18px}.como b{display:block;font-size:13px;color:var(--blue);letter-spacing:.06em;text-transform:uppercase}
+@media(max-width:480px){.logo{font-size:26px}header a.ws{padding:8px 12px;font-size:13px}}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 16px}
 </style><script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1619971716531777');fbq('track','PageView');</script><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1619971716531777&ev=PageView&noscript=1" alt=""></noscript>
 </head>
 <body>
+<div class="cinta" aria-label="Promociones"><div id="cinta-i"></div></div>
 <header><div class="w"><a class="logo" href="https://www.proyectamas.com.ar">PROYECTA<span> +</span></a><a class="ws" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20tengo%20una%20consulta" target="_blank" rel="noopener">Escribime por WhatsApp</a></div></header>
 <div class="promo" id="promo"></div>
 <main>
@@ -46,4 +50,5 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 16px}
 </main>
 <footer>Proyecta + · Rosario, Santa Fe · Precios en pesos argentinos, sujetos a cambios.</footer>
 <script>(function(){var p=window.PROMO,el=document.getElementById("promo");if(p&&el){el.textContent="🔥 "+p.etiqueta+": "+p.porcentaje+"% OFF en todo hasta el "+p.hastaTxt+" · ya aplicado en cada precio";el.style.display="block"}})();</script>
+<script>(function(){var p=window.PROMO,it=['<span>💳 <b>Descuentos y 3 cuotas sin interés</b> en planillas y manuales</span>'];if(p){it.push('<span>🔥 <b>'+p.porcentaje+'% OFF</b> '+p.etiqueta+' hasta el '+p.hastaTxt+' · ya aplicado</span>')}it.push('<span>📩 Archivos el mismo día por mail o WhatsApp</span>','<span>🛡️ Garantía de <b>7 días</b></span>');var h=it.join(''),e=document.getElementById("cinta-i");if(e)e.innerHTML=h+h})();</script>
 </body></html>
