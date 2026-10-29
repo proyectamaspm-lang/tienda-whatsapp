@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#122e54">
+<title>Planillas Excel de cómputo y presupuesto de obra · Suite PRO · Proyecta Más</title>
+<meta name="description" content="Planillas Excel para cómputo y presupuesto de obra: 32 rubros automatizados + planilla integradora, con APU, mano de obra por zona y certificación. De $956.968 a $239.242, 3 cuotas sin interés y garantía de 7 días.">
+<link rel="canonical" href="https://tienda.proyectamas.com.ar/planillas">
+<link rel="icon" type="image/png" href="https://www.proyectamas.com.ar/assets/icon/favicon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Planillas Excel de cómputo y presupuesto de obra · Suite PRO · Proyecta Más">
+<meta property="og:description" content="Planillas Excel para cómputo y presupuesto de obra: 32 rubros automatizados + planilla integradora, con APU, mano de obra por zona y certificación. De $956.968 a $239.242, 3 cuotas sin interés y garantía de 7 días.">
+<meta property="og:image" content="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/Captura.png?v=1788831873">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Bangers&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+
+<script src="https://www.proyectamas.com.ar/js/promos.js"></script>
+<style>
+:root{--ink:#122e54;--blue:#1e4982;--yellow:#ffe500;--paper:#f6f4ec;--sheet:#fff;--line:#d9d5c7;--text:#122e54;--muted:#5b6474;--ok:#1f7a45;--red:#c0392b;--header-h:64px;--r:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Archivo",system-ui,sans-serif;font-size:17px;line-height:1.55;color:var(--text);background:var(--paper)}
+img,video{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",monospace}
+h1,h2,h3{line-height:1.05;letter-spacing:-.01em}
+.d1{font-size:clamp(38px,5.6vw,76px);font-weight:900;font-variation-settings:"wdth" 78;text-transform:uppercase}
+.d2{font-size:clamp(30px,4.4vw,52px);font-weight:900;font-variation-settings:"wdth" 80;text-transform:uppercase}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--muted);max-width:680px}
+.u-amb{font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.sec{padding:clamp(56px,8vw,96px) 0;scroll-margin-top:calc(var(--header-h) + 16px)}
+.cat-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 48px;align-items:end;margin-bottom:36px}
+.cat-head p{color:var(--muted);font-size:17px}
+@media(max-width:820px){.cat-head{grid-template-columns:1fr}}
+.center{text-align:center}.center .lead{margin:14px auto 0}
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:800;font-size:16px;padding:14px 22px;border-radius:999px;border:2px solid var(--ink);text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s;line-height:1.1;text-align:center}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.btn--yellow{background:var(--yellow);color:var(--ink)}
+.btn--ink{background:var(--ink);color:#fff}
+.btn--ink:hover{box-shadow:4px 4px 0 var(--yellow)}
+.btn--line{background:transparent;color:var(--ink)}
+.btn--ghost{background:transparent;color:#fff;border-color:#fff}
+.btn--ghost:hover{background:#fff;color:var(--ink);box-shadow:4px 4px 0 var(--yellow)}
+.btn--xl{font-size:clamp(18px,2vw,22px);padding:20px 30px;text-transform:uppercase;letter-spacing:.01em}
+.btn--pulse{animation:pulso 2.2s ease-in-out infinite}
+@keyframes pulso{0%,100%{box-shadow:0 0 0 0 rgba(255,229,0,.7)}50%{box-shadow:0 0 0 12px rgba(255,229,0,0)}}
+.btn.is-added{background:var(--ok);border-color:var(--ok);color:#fff}
+/* Cinta */
+.cinta{background:#000;color:#fff;font-size:14px;overflow:hidden;white-space:nowrap;position:relative;z-index:60}
+.cinta>div{display:inline-block;padding:7px 0;animation:deslizar 28s linear infinite}
+.cinta span{margin:0 28px}.cinta b{color:var(--yellow)}
+@keyframes deslizar{to{transform:translateX(-50%)}}
+/* Header */
+header.top{position:sticky;top:0;z-index:50;background:var(--ink);border-bottom:3px solid var(--yellow)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:var(--header-h)}
+.logo{font-family:"Bangers",cursive;font-size:34px;letter-spacing:.04em;color:#fff;text-decoration:none;line-height:1}
+.logo span{color:var(--yellow)}
+.nav-links{display:flex;gap:4px}
+.nav-links a{color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 12px;border-radius:var(--r)}
+.nav-links a:hover{background:rgba(255,255,255,.1)}
+.nav .btn{padding:9px 16px;font-size:14px}
+@media(max-width:980px){.nav-links{display:none}}
+/* Hero */
+.plano{position:relative;background:var(--ink);color:#fff;overflow:hidden;padding:clamp(44px,7vw,96px) 0 clamp(40px,6vw,72px)}
+.plano canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.plano .wrap{position:relative;z-index:1}
+.plano .d1 em{font-style:normal;color:var(--yellow)}
+.plano .lead{color:rgba(255,255,255,.85);margin-top:20px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);grid-template-areas:"fbar vid" "h1 vid" "lead vid" "oferta vid" "acts vid";column-gap:48px;align-items:start}
+.hero-fbar{grid-area:fbar}.hero-h1{grid-area:h1}.hero-video{grid-area:vid;align-self:center}.hero-lead{grid-area:lead}.hero-acts{grid-area:acts}.hero-oferta{grid-area:oferta}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;grid-template-areas:"fbar" "h1" "vid" "lead" "oferta" "acts"}.hero-video{margin-top:22px}}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;align-items:center}
+.hero-oferta{margin-top:24px;display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,229,0,.5);border-radius:18px;padding:12px 18px}
+.hero-oferta>s{font-size:20px;color:rgba(255,255,255,.6);text-decoration-color:var(--red);text-decoration-thickness:3px}
+.hero-oferta>b{font-size:clamp(34px,4vw,46px);font-weight:900;color:var(--yellow);font-variation-settings:"wdth" 75;line-height:1}
+.hero-oferta>span{font-weight:800;font-size:13px;background:var(--red);color:#fff;padding:4px 10px;border-radius:999px}
+.hero-oferta>small{flex-basis:100%;color:rgba(255,255,255,.75);font-size:14px}
+.formula-bar{display:flex;align-items:center;max-width:620px;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:14px;margin-bottom:26px;box-shadow:6px 6px 0 var(--yellow);overflow:hidden;font-family:"JetBrains Mono",monospace;font-size:14px}
+.formula-bar span{padding:10px 14px}
+.formula-bar .ref{background:var(--paper);border-right:1px solid var(--line);color:var(--muted)}
+.formula-bar .fx{border-right:1px solid var(--line);font-style:italic;color:var(--blue);font-weight:700}
+.formula-bar .f{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.caret{display:inline-block;width:8px;height:16px;background:var(--yellow);vertical-align:text-bottom;animation:blink 1s steps(1) infinite;padding:0!important}
+@keyframes blink{50%{opacity:0}}
+.video-wrap{aspect-ratio:16/9;border:2px solid var(--ink);border-radius:22px;box-shadow:8px 8px 0 var(--yellow);background:#000;overflow:hidden;position:relative}
+.video-wrap video{width:100%;height:100%;object-fit:cover}
+.hero-video{border-color:var(--yellow);box-shadow:10px 10px 0 rgba(255,229,0,.85)}
+.video-tag{position:absolute;left:14px;bottom:14px;background:var(--yellow);color:var(--ink);font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px}
+/* Promo */
+.promo{background:var(--yellow);color:var(--ink);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.promo-in{display:grid;grid-template-columns:minmax(0,1.3fr) auto auto;gap:18px 28px;align-items:center;padding-top:16px;padding-bottom:16px}
+.promo-txt{display:flex;flex-direction:column;gap:2px}
+.promo-tag{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.promo-txt strong{font-size:clamp(22px,3vw,32px);font-weight:900;line-height:1;font-variation-settings:"wdth" 80;text-transform:uppercase}
+.promo-reloj small{display:block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+#promo-t{display:flex;gap:6px}
+#promo-t span{background:var(--ink);color:#fff;border-radius:12px;min-width:58px;padding:6px 4px;text-align:center;font-size:11px;text-transform:uppercase}
+#promo-t b{display:block;font-family:"JetBrains Mono",monospace;font-size:24px;color:var(--yellow);line-height:1.1}
+.promo-cuotas{display:flex;align-items:center;gap:8px;background:#fff;border:2px solid var(--ink);border-radius:18px;padding:8px 14px}
+.promo-cuotas b{font-size:44px;font-weight:900;line-height:1;color:var(--blue)}
+.promo-cuotas span{font-weight:800;font-size:14px;line-height:1.1;text-transform:uppercase}
+@media(max-width:820px){.promo-in{grid-template-columns:1fr auto}.promo-txt{grid-column:1/-1}}
+@media(max-width:420px){#promo-t span{min-width:48px}#promo-t b{font-size:20px}.promo-cuotas b{font-size:34px}}
+.promo-only{display:none}body.promo-on .promo-only{display:inline}
+.no-cod{display:none}body.promo-auto .no-cod{display:inline}body.promo-auto .si-cod{display:none}
+/* Carrusel */
+.carrusel{background:var(--ink);padding:8px 0 26px;border-top:1px solid rgba(255,255,255,.15)}
+.capturas{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 20px;scrollbar-width:none}
+.capturas::-webkit-scrollbar{display:none}
+.capturas figure{flex:none;scroll-snap-align:center;cursor:zoom-in;position:relative}
+.capturas figure::after{content:"🔍 Ampliar";position:absolute;right:10px;bottom:10px;background:var(--ink);color:#fff;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;opacity:.9}
+.capturas img{height:clamp(220px,26vw,250px);width:auto;border:2px solid var(--yellow);border-radius:16px;background:#fff}
+@media(max-width:700px){.capturas img{height:clamp(220px,58vw,280px)}}
+.capturas-ayuda{color:rgba(255,255,255,.7);text-align:center;font-size:13px;margin:-6px 0 10px}
+.capturas-nav{display:flex;gap:8px;justify-content:center}
+.capturas-nav button{width:44px;height:44px;border-radius:50%;border:2px solid var(--ink);background:var(--yellow);font-size:18px;font-weight:900;cursor:pointer}
+.visor{position:fixed;inset:0;z-index:200;background:rgba(10,20,40,.94);display:flex;align-items:center;justify-content:center}
+.visor-img{width:100%;height:100%;overflow:auto;display:flex;align-items:center;justify-content:center;padding:56px 12px;touch-action:pan-x pan-y pinch-zoom}
+.visor-img img{max-width:none;width:min(1400px,100%);height:auto;border-radius:12px;border:2px solid var(--yellow);background:#fff;cursor:zoom-in}
+.visor-img.zoom img{width:220%;max-width:2600px;cursor:zoom-out}
+.visor-x{position:absolute;top:12px;right:12px;width:46px;height:46px;border-radius:50%;border:2px solid #fff;background:var(--ink);color:#fff;font-size:20px;cursor:pointer;z-index:2}
+.visor-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:2px solid var(--ink);background:var(--yellow);font-size:18px;font-weight:900;cursor:pointer;z-index:2}
+.visor-prev{left:10px}.visor-next{right:10px}
+.visor-pie{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#fff;font-size:13px}
+/* Pasos */
+.pasos{list-style:none;counter-reset:p;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+.pasos li{counter-increment:p;position:relative;border:2px solid var(--ink);border-radius:18px;background:var(--sheet);padding:16px 16px 16px 60px}
+.pasos li::before{content:counter(p,decimal-leading-zero);position:absolute;left:16px;top:16px;font-family:"JetBrains Mono",monospace;font-weight:700;background:var(--ink);color:var(--yellow);padding:3px 9px;border-radius:999px;font-size:13px}
+.pasos b{display:block}.pasos span{color:var(--muted);font-size:15px}
+@media(max-width:760px){.pasos{grid-template-columns:1fr}}
+/* Suite */
+.suite{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.suite::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+.suite .wrap{position:relative}
+.suite .u-amb{color:var(--yellow)}.suite .lead{color:rgba(255,255,255,.82)}
+.sello-top{display:inline-block;background:var(--red);color:#fff;font-weight:900;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:14px}
+.suite-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:start;margin-top:34px}
+.suite-img{border:2px solid #fff;border-radius:20px;overflow:hidden;aspect-ratio:16/10;background:#0c2040}
+.suite-img img{width:100%;height:100%;object-fit:cover}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chips li{font-size:14px;padding:6px 13px;border:1px solid rgba(255,229,0,.35);background:rgba(255,255,255,.05);border-radius:999px}
+.chips li.dest{background:var(--yellow);color:var(--ink);font-weight:800}
+.integradora{margin-top:24px;background:rgba(255,255,255,.07);border:1px solid rgba(255,229,0,.45);border-radius:20px;padding:20px 22px}
+.integradora h3{font-size:24px;margin-bottom:10px;color:#fff}
+.integradora p{color:rgba(255,255,255,.8);font-size:16px;margin-bottom:12px}
+.chk{list-style:none;display:grid;gap:10px}
+.chk li{position:relative;padding-left:32px;font-size:15.5px}
+.chk li::before{content:"✓";position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:var(--yellow);color:var(--ink);font-weight:900;font-size:13px;display:grid;place-items:center}
+.suite .chk li{color:rgba(255,255,255,.88)}.suite .chk li b{color:#fff}
+/* Caja de precio grande */
+.precio-box{background:var(--yellow);color:var(--ink);border:3px solid #fff;border-radius:26px;padding:26px 24px 24px;box-shadow:10px 10px 0 #000;text-align:center;position:sticky;top:calc(var(--header-h) + 20px)}
+.precio-box .antes{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-top:6px}
+.precio-box s{display:block;font-size:clamp(30px,3.6vw,40px);font-weight:900;color:#7a6f00;text-decoration-color:var(--red);text-decoration-thickness:5px;line-height:1.1}
+.precio-box .hoy{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-top:12px}
+.precio-box .ahora{font-size:clamp(58px,7vw,82px);font-weight:900;line-height:.95;font-variation-settings:"wdth" 70;letter-spacing:-.02em}
+.ahorro{display:inline-block;margin-top:10px;background:var(--red);color:#fff;font-weight:900;font-size:16px;padding:7px 14px;border-radius:12px;transform:rotate(-2deg)}
+.precio-box .cuotas{font-size:15px;margin-top:12px}
+.precio-box .cupon-precio{color:var(--ink)}
+.precio-box .btn{width:100%;margin-top:18px}
+.precio-box ul{list-style:none;margin-top:14px;font-size:14px;font-weight:700;display:grid;gap:4px}
+.por-planilla{margin-top:10px;font-size:14px;font-weight:700}
+@media(max-width:900px){.suite-grid{grid-template-columns:1fr}.precio-box{position:static}}
+/* Cuotas y cupón */
+.cuotas{display:inline-block;margin-top:8px;background:var(--ink);color:#fff;font-size:13.5px;font-weight:700;padding:5px 11px;border-radius:999px}
+.cuotas b{color:var(--yellow)}
+.cupon-precio{margin-top:6px;font-size:14px;font-weight:700;color:var(--ok)}
+.cupon-precio b{font-size:17px}
+/* Autor */
+.autor-sec{background:var(--sheet);border-bottom:1px solid var(--line)}
+.autor{display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,.8fr);gap:36px;align-items:center}
+.autor img{width:200px;height:200px;object-fit:cover;border:3px solid var(--ink);border-radius:50%;box-shadow:8px 8px 0 var(--yellow)}
+.autor p{color:var(--muted);margin-top:12px}
+.firma{font-weight:800;margin-top:14px}
+.autor .btn{margin-top:16px}
+.autor-datos{display:grid;gap:10px}
+.autor-datos div{display:flex;align-items:baseline;gap:10px;border:2px solid var(--ink);border-radius:14px;padding:10px 14px;background:#fff}
+.autor-datos b{font-size:24px;font-weight:900;color:var(--blue);min-width:72px;font-variation-settings:"wdth" 80}
+.autor-datos span{font-size:14px;color:var(--muted)}
+@media(max-width:900px){.autor{grid-template-columns:1fr}.autor img{width:150px;height:150px}}
+/* Stack de valor */
+.stack{max-width:860px;margin:0 auto;background:var(--sheet);border:3px solid var(--ink);border-radius:24px;overflow:hidden;box-shadow:8px 8px 0 var(--yellow)}
+.stack-row{display:flex;justify-content:space-between;gap:16px;padding:14px 22px;border-bottom:1px dashed var(--line);align-items:center}
+.stack-row span{font-weight:700}
+.stack-row span small{display:block;font-weight:500;color:var(--muted);font-size:14px}
+.stack-row em{font-style:normal;font-weight:800;white-space:nowrap;color:var(--blue)}
+.stack-row em.reg{background:var(--yellow);color:var(--ink);padding:3px 10px;border-radius:999px;font-size:14px}
+.stack-tot{background:var(--ink);color:#fff;padding:22px;text-align:center}
+.stack-tot s{font-size:22px;color:rgba(255,255,255,.6);text-decoration-color:var(--red);text-decoration-thickness:3px}
+.stack-tot>b{display:block;font-size:clamp(48px,6vw,70px);color:var(--yellow);font-weight:900;line-height:1;font-variation-settings:"wdth" 72;margin:6px 0}
+.stack-tot .btn{margin-top:14px}
+/* Tabla comparativa */
+.tabla-wrap{overflow-x:auto;border:2px solid var(--ink);border-radius:20px;background:var(--sheet)}
+table.comp{width:100%;border-collapse:collapse;min-width:620px;font-size:15.5px}
+table.comp th,table.comp td{padding:13px 14px;text-align:center;border-bottom:1px solid var(--line)}
+table.comp th:first-child,table.comp td:first-child{text-align:left;font-weight:700}
+table.comp thead th{background:var(--paper);font-size:15px;text-transform:uppercase;letter-spacing:.04em}
+table.comp .col-suite{background:rgba(255,229,0,.28)}
+table.comp thead .col-suite{background:var(--yellow)}
+table.comp .si{color:var(--ok);font-weight:900}table.comp .no{color:var(--red);font-weight:900}
+table.comp tr:last-child td{border-bottom:0}
+@media(max-width:620px){table.comp{min-width:0;font-size:12.5px}table.comp th,table.comp td{padding:9px 6px}table.comp thead th{font-size:11px;letter-spacing:0}}
+/* Social proof */
+.prueba{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.prueba div{background:var(--sheet);border:2px solid var(--ink);border-radius:20px;padding:20px;text-align:center}
+.prueba b{display:block;font-size:40px;font-weight:900;color:var(--blue);line-height:1;font-variation-settings:"wdth" 75}
+.prueba span{font-size:15px;color:var(--muted)}
+@media(max-width:760px){.prueba{grid-template-columns:1fr}}
+.resenas{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:16px}
+.resena{background:var(--sheet);border:2px solid var(--ink);border-radius:20px;padding:20px}
+.resena .estrellas,.estrellas{color:#e0a800;font-size:18px;letter-spacing:2px}
+.resena p{margin:8px 0 12px;font-size:15.5px}
+.resena small{color:var(--muted);font-size:13.5px}
+.resena img{width:100%;border-radius:12px;margin-top:10px;border:1px solid var(--line)}
+/* Tarjetas de producto */
+.pr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:20px}
+.pr-grid--mini{grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:16px;margin-bottom:40px}
+.pr{background:var(--sheet);border:2px solid var(--ink);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;position:relative;transition:transform .2s,box-shadow .2s}
+.pr:hover{transform:translateY(-3px);box-shadow:6px 6px 0 var(--ink)}
+.pr--dest{box-shadow:6px 6px 0 var(--yellow)}
+.pr-portada{position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:2px solid var(--ink);display:flex;flex-direction:column;justify-content:flex-end;padding:14px 16px;color:rgba(255,255,255,.78);background-color:var(--ink);background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:22px 22px}
+.pr-portada span{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.06em;position:absolute;left:16px;top:12px}
+.pr-portada b{position:absolute;right:14px;top:-6px;font-size:clamp(64px,8vw,100px);line-height:1;font-weight:900;color:var(--yellow);font-variation-settings:"wdth" 70}
+.pr-portada small{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.pr-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;transition:transform .6s}
+.pr:hover .pr-img{transform:scale(1.04)}
+.pr-body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
+.pr--mini .pr-body{padding:16px}
+.pr-et{align-self:flex-start;font-size:11.5px;font-weight:800;padding:4px 11px;border-radius:999px;margin-bottom:10px;background:var(--yellow);color:var(--ink);border:1px solid var(--ink);text-transform:uppercase;letter-spacing:.05em}
+.pr h3{font-size:clamp(20px,1.8vw,24px);font-weight:800}
+.pr--mini h3{font-size:18px}
+.pr-body>p{color:var(--muted);font-size:15.5px;margin:8px 0 18px}
+.pr--mini .pr-body>p{font-size:14px}
+.pr-inc-t{font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:14px 0 6px}
+.pr-inc{list-style:none;margin:0 0 16px;padding:0;font-size:14.5px;color:var(--ink)}
+.pr-inc li{padding:3px 0 3px 24px;position:relative;line-height:1.35}
+.pr-inc li::before{content:"✓";position:absolute;left:0;color:#0a7a3d;font-weight:800}
+.pr-lista{list-style:none;margin:12px 0 18px;columns:2;column-gap:14px;font-size:14.5px;color:var(--muted)}
+.pr-lista li{padding:2px 0 2px 16px;position:relative;break-inside:avoid}
+.pr-lista li::before{content:"▸";position:absolute;left:0;color:var(--blue)}
+.pr-compra{margin-top:auto;padding-top:16px;border-top:1px dashed var(--line)}
+.pr-precio{font-size:30px;font-weight:900;line-height:1.05;font-variant-numeric:tabular-nums}
+.pr--mini .pr-precio{font-size:24px}
+.pr-precio s{font-size:17px;font-weight:700;color:var(--red);margin-right:4px}
+.pr-precio--txt{font-size:24px}
+.pr-compra small{display:block;font-size:13px;color:var(--muted);margin-top:3px}
+.pr-btns{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:14px}
+.pr-btns .btn{padding:11px 18px;font-size:15px}
+.pr--mini .pr-btns .btn{width:100%}
+.pr-ver{font-weight:700;font-size:15px;text-underline-offset:3px}
+.grupo{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:15px;margin:8px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.grupo span{font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--blue)}
+.grupo small{font-weight:600;color:var(--muted);font-size:14px}
+.aviso-suite{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--yellow);border:2px solid var(--ink);border-radius:18px;padding:14px 18px;margin-bottom:28px;font-weight:700}
+.nota-m{margin-top:22px;font-size:15px;color:var(--muted);border-left:3px solid var(--yellow);padding:8px 14px;background:var(--sheet);border-radius:0 12px 12px 0}
+/* Antes/después */
+.comp2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.comp2 article{background:var(--sheet);border:2px solid var(--ink);border-radius:20px;padding:24px}
+.comp2 article:last-child{box-shadow:6px 6px 0 var(--yellow)}
+.comp2 h3{font-size:20px;margin-bottom:14px}
+.comp2 ul{list-style:none}
+.comp2 li{padding:7px 0 7px 28px;position:relative;font-size:15.5px;border-bottom:1px dashed var(--line)}
+.comp2 li:last-child{border-bottom:0}
+.comp2 .no li::before{content:"✕";position:absolute;left:4px;color:var(--red);font-weight:900}
+.comp2 .si li::before{content:"✓";position:absolute;left:4px;color:var(--ok);font-weight:900}
+@media(max-width:760px){.comp2{grid-template-columns:1fr}}
+/* Beneficios */
+.benef{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.benef div{background:var(--sheet);border:2px solid var(--ink);border-radius:20px;padding:20px}
+.benef b{display:block;font-size:30px;font-weight:900;color:var(--blue);font-variation-settings:"wdth" 75;line-height:1.05}
+.benef strong{display:block;margin:6px 0 4px}
+.benef p{font-size:15px;color:var(--muted)}
+/* Demo gratis */
+.gratis{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:28px;align-items:center;background:var(--sheet);border:2px solid var(--ink);border-radius:24px;padding:28px}
+.gratis .big{font-size:96px;font-weight:900;line-height:.85;font-variation-settings:"wdth" 70;color:var(--blue)}
+.gratis h2{font-size:clamp(22px,2.6vw,30px);text-transform:uppercase}
+@media(max-width:820px){.gratis{grid-template-columns:1fr}}
+/* Garantía + FAQ */
+.garantia{display:flex;gap:18px;align-items:flex-start;background:var(--sheet);border:2px solid var(--ink);border-radius:20px;padding:24px;margin-bottom:28px;max-width:820px}
+.garantia .icono{font-size:40px;line-height:1}
+.garantia h3{font-size:22px;margin-bottom:4px}
+.garantia p{color:var(--muted)}
+details{background:var(--sheet);border:1px solid var(--line);border-radius:14px;margin-bottom:8px;max-width:820px;overflow:hidden}
+summary{cursor:pointer;padding:15px 18px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:"JetBrains Mono",monospace;color:var(--blue);font-size:18px}
+details[open] summary::after{content:"−"}
+details p{padding:0 18px 16px;color:var(--muted);font-size:15.5px}
+/* CTA final */
+.final{background:var(--yellow);border-top:3px solid var(--ink);text-align:center}
+.final h2{font-size:clamp(32px,5vw,58px);font-weight:900;text-transform:uppercase;font-variation-settings:"wdth" 78;line-height:1}
+.final p{max-width:640px;margin:14px auto 0;font-size:18px}
+.final-precio{margin:24px auto 0;display:inline-block;background:var(--ink);color:#fff;border-radius:24px;padding:20px 30px;box-shadow:8px 8px 0 #000}
+.final-precio s{font-size:24px;color:rgba(255,255,255,.6);text-decoration-color:var(--red);text-decoration-thickness:4px}
+.final-precio>b{display:block;font-size:clamp(56px,8vw,90px);color:var(--yellow);font-weight:900;line-height:1;font-variation-settings:"wdth" 70}
+.final .btn{margin-top:22px}
+.final-mini{margin-top:12px;font-size:14px;font-weight:700}
+footer{background:var(--ink);color:rgba(255,255,255,.75);border-top:3px solid var(--yellow);padding:40px 0 120px;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between;align-items:center}
+footer a{color:var(--yellow);text-decoration:none}
+/* Barras inferiores */
+#carrito,#barra{position:fixed;left:50%;bottom:-140px;transform:translateX(-50%);width:min(94%,640px);background:var(--ink);border:2px solid var(--yellow);border-radius:999px;padding:10px 12px 10px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;z-index:90;box-shadow:0 10px 40px rgba(0,0,0,.45);transition:bottom .35s cubic-bezier(.2,1.2,.4,1);color:#fff}
+#carrito.on,#barra.on{bottom:14px}
+#carrito small,#barra small{display:block;font-size:12px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.05em}
+#carrito b,#barra b{font-size:22px;color:var(--yellow);font-variation-settings:"wdth" 80}
+#barra s{font-size:14px;color:rgba(255,255,255,.55);margin-right:6px}
+#carrito .btn,#barra .btn{padding:11px 18px;font-size:15px;white-space:nowrap}
+#carrito .vaciar{background:none;border:0;color:rgba(255,255,255,.6);font:inherit;font-size:13px;text-decoration:underline;cursor:pointer}
+#wsp{position:fixed;right:16px;bottom:18px;z-index:80;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+#wsp svg{width:30px;height:30px;fill:#fff}
+body.con-barra #wsp{bottom:96px}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
+.reveal.in{opacity:1;transform:none}
+.confia{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:14px;font-weight:700;color:rgba(255,255,255,.88);flex-basis:100%;margin-top:4px}
+.confia span{display:inline-flex;align-items:center;gap:6px}
+.bump{display:flex;gap:12px;align-items:flex-start;text-align:left;margin-top:16px;background:#fff;border:2px dashed var(--ink);border-radius:16px;padding:12px 14px;cursor:pointer;font-size:14.5px;line-height:1.35;color:var(--ink)}
+.bump input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--ink);cursor:pointer}
+.bump b{display:block;font-size:15.5px}
+.bump s,.precio-box .bump s{display:inline;font-size:14px;line-height:1.35;color:var(--red);font-weight:700;text-decoration-thickness:2px}
+.bump em{font-style:normal;font-weight:900;color:var(--blue)}
+.final .bump{max-width:520px;margin:20px auto 0}
+.red-box{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px 36px;align-items:center;background:var(--ink);color:#fff;border-radius:24px;padding:clamp(24px,4vw,40px);box-shadow:8px 8px 0 var(--yellow)}
+.red-box h2{font-size:clamp(26px,3.4vw,40px);font-weight:900;text-transform:uppercase;line-height:1.05}
+.red-box p{color:rgba(255,255,255,.82);margin-top:10px}
+.red-box ul{list-style:none;margin-top:14px;display:grid;gap:6px;font-size:15px}
+.red-box li::before{content:"✓ ";color:var(--yellow);font-weight:900}
+.red-box form{display:flex;flex-wrap:wrap;gap:10px}
+.red-box input[type=email]{flex:1 1 220px;font:inherit;padding:13px 18px;border:2px solid #fff;border-radius:999px;background:#fff;color:var(--ink)}
+.red-box small{display:block;width:100%;font-size:13px;color:rgba(255,255,255,.65)}
+.red-box .ok{color:var(--yellow);font-weight:800}
+@media(max-width:820px){.red-box{grid-template-columns:1fr}}
+.hero-oferta{max-width:100%;min-width:0}
+.hero-res{display:block;min-width:0;overflow-wrap:anywhere;flex-basis:100%;margin-top:8px;font-size:14.5px;line-height:1.45;color:rgba(255,255,255,.9);text-decoration:none;max-width:560px;border-left:3px solid var(--yellow);padding:4px 0 4px 12px}
+.hero-res .estrellas{font-size:15px;letter-spacing:1px;margin-right:4px}
+.hero-res b{color:var(--yellow);font-weight:700}
+.js-tag{display:none;font-style:normal;font-weight:800;font-size:12.5px;background:var(--yellow);color:var(--ink);padding:3px 10px;border-radius:999px;flex-basis:100%;width:max-content;max-width:100%}
+body.promo-on .js-tag{display:inline-block}
+.precio-box .js-tag{margin:6px auto 0}
+.hero-link{color:rgba(255,255,255,.85);font-weight:700;font-size:15px;text-underline-offset:3px}
+.bump{background:#fff8c4!important;border:3px dashed var(--red)!important}
+.bump-tag{display:block;font-size:12px;font-weight:900;color:var(--red);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+@keyframes flashok{0%{box-shadow:0 0 0 0 rgba(31,122,69,.7)}100%{box-shadow:0 0 0 14px rgba(31,122,69,0)}}
+.btn.flash{animation:flashok .7s ease-out}
+.pas{background:var(--sheet);border-bottom:1px solid var(--line)}
+.pas .lead{max-width:760px;margin-top:14px}
+.pas .comp2{margin-top:28px}
+.mas-rubros{background:transparent!important;border:0!important;margin:10px 0 0!important;max-width:none!important}
+.mas-rubros summary{display:inline-flex;padding:6px 14px;border:1px solid var(--yellow);border-radius:999px;color:var(--yellow);font-size:14px}
+.mas-rubros summary::after{content:"▾";color:var(--yellow);margin-left:6px;font-size:14px}
+.mas-rubros[open] summary::after{content:"▴"}
+.mas-rubros .chips{margin-top:10px}
+.pk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px}
+.pk{background:var(--sheet);border:2px solid var(--ink);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.pk--dest{box-shadow:6px 6px 0 var(--yellow)}
+.pk-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.pk h3{font-size:20px}
+.pk-n{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;background:var(--ink);color:var(--yellow);padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pk-items{font-size:14px;color:var(--muted)}
+.pk .pr-precio{font-size:26px;margin-top:6px}
+.pk .pr-btns{margin-top:8px}
+.sueltas{max-width:none!important;background:var(--sheet)!important;border:2px solid var(--ink)!important;border-radius:18px!important}
+.sueltas>summary{font-size:18px;padding:18px 20px}
+.sueltas-in{padding:0 16px 16px}
+.fila-g{font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin:18px 0 6px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.fila-g small{font-family:"Archivo",sans-serif;text-transform:none;letter-spacing:0;color:var(--muted);font-weight:600}
+.filas{list-style:none}
+.filas li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:10px 0;border-top:1px dashed var(--line)}
+.filas b{display:block;font-size:15.5px}
+.filas small{display:block;color:var(--muted);font-size:13px}
+.filas .fp{font-weight:900;font-size:16px;white-space:nowrap}
+.filas .btn{padding:8px 14px;font-size:14px}
+@media(max-width:480px){.filas li{grid-template-columns:minmax(0,1fr) auto}.filas .fp{grid-column:2;grid-row:1}.filas .btn{grid-column:1/-1}}
+.demo-box form{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.demo-box input[type=email]{flex:1 1 220px;font:inherit;padding:13px 18px;border:2px solid var(--ink);border-radius:999px;background:#fff;color:var(--ink)}
+.demo-box small{display:block;width:100%;font-size:13px;color:var(--muted)}
+.demo-box .ok{font-weight:800;color:var(--ok);width:100%}
+[hidden]{display:none!important}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Suite Cómputo y Presupuesto PRO", "brand": {"@type": "Brand", "name": "Proyecta Más"}, "image": "https://cdn.shopify.com/s/files/1/0878/6470/5381/files/Captura.png?v=1788831873", "description": "32 planillas Excel de cómputo y presupuesto de obra por rubro + planilla integradora.", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5", "reviewCount": "1"}, "offers": {"@type": "Offer", "price": "239242", "priceCurrency": "ARS", "availability": "https://schema.org/InStock"}}</script>
+</head>
+<body>
+<div class="cinta" aria-label="Promociones">
+  <div><span>💳 <b>3 cuotas sin interés</b> con Mercado Pago</span><span class="promo-only">🔥 <b><span data-promo="porcentaje">15</span>% OFF extra</b> <span class="si-cod">con <b data-promo="codigo">SEMANA15</b> </span>hasta el <span data-promo="hastaTxt">lunes 26/10</span> · ya aplicado</span><span>📩 Archivos el mismo día por mail o WhatsApp</span><span>🛡️ Garantía de <b>7 días</b> · te devuelvo el 100%</span><span>💳 <b>3 cuotas sin interés</b> con Mercado Pago</span><span class="promo-only">🔥 <b><span data-promo="porcentaje">15</span>% OFF extra</b> <span class="si-cod">con <b data-promo="codigo">SEMANA15</b> </span>hasta el <span data-promo="hastaTxt">lunes 26/10</span> · ya aplicado</span><span>📩 Archivos el mismo día por mail o WhatsApp</span><span>🛡️ Garantía de <b>7 días</b> · te devuelvo el 100%</span></div>
+</div>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="logo" href="#inicio" aria-label="Proyecta Más, inicio">PROYECTA<span> +</span></a>
+    <nav class="nav-links" aria-label="Secciones"><a href="#suite">La suite</a><a href="#incluye">Qué incluye</a><a href="#comparar">Comparar</a><a href="#faq">Garantía</a><a href="#packs">Packs y sueltas</a></nav>
+    <a class="btn btn--yellow" href="#suite">Quiero la suite</a>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- ═════════ HERO: un solo objetivo ═════════ -->
+<section class="plano" aria-labelledby="h1">
+  <canvas id="plano" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div class="formula-bar hero-fbar" aria-hidden="true"><span class="ref">K45</span><span class="fx">fx</span><span class="f"><span id="typed" style="padding:0"></span><span class="caret"></span></span></div>
+    <h1 class="d1 hero-h1" id="h1">Presupuestá cualquier obra <em>en minutos.</em></h1>
+    <div class="hero-video video-wrap">
+      <video autoplay loop muted playsinline preload="metadata" poster="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/Captura.png?v=1788831873" aria-label="Demo: así funciona una planilla Proyecta Más"><source src="https://cdn.shopify.com/videos/c/o/v/ec5b25f282474b3fb5e37d41f9be0dd5.mp4" type="video/mp4"></video>
+      <span class="video-tag">▶ Mirá cómo funciona en segundos</span>
+    </div>
+    <p class="lead hero-lead">32 planillas de cómputo y presupuesto, una por rubro, más una integradora que junta toda la obra. Cargás cantidades y te calcula materiales, mano de obra por zona, APU, certificación y el presupuesto listo para el cliente. Hechas por un Maestro Mayor de Obras.</p>
+    <div class="hero-oferta"><s>$956.968</s><b class="js-final" data-base="239242">$239.242</b><span class="js-pct" data-base="239242" data-antes="956968">75% OFF</span><em class="js-tag">🔥 <span data-promo="etiqueta">Semana de obra</span><span class="si-cod"> · cupón <span data-promo="codigo">SEMANA15</span> ya aplicado</span><span class="no-cod"> · ya aplicado</span></em><small>Suite completa · 3 cuotas sin interés · descarga inmediata</small><a class="hero-res" href="#resenas"><span class="estrellas">★★★★★</span> “Excelente producto, me es de suma utilidad y fácil manejo.” <b>— Marcelo P., compra verificada</b></a></div>
+    <div class="hero-actions hero-acts">
+      <a class="btn btn--yellow btn--xl btn--pulse" href="#suite">Quiero la suite completa</a>
+      <div class="confia" aria-label="Compra segura"><span>🛡️ Garantía 7 días</span><span>💳 3 cuotas sin interés · Mercado Pago</span><span>📩 Entrega el mismo día</span></div>
+      <a class="hero-link" href="#packs">¿Hacés un solo rubro? Ver packs ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ OFERTA CON TIEMPO (cupón real; se oculta sola al vencer) ═════════ -->
+<section class="promo" id="promo" aria-label="Oferta de lanzamiento" hidden>
+  <div class="wrap promo-in">
+    <div class="promo-txt"><span class="promo-tag">🔥 <span data-promo="etiqueta">Semana de obra</span> · hasta el <span data-promo="hastaTxt">lunes 26/10</span></span><strong><span data-promo="porcentaje">15</span>% OFF extra en todo</strong><span><span class="si-cod">Cupón <b data-promo="codigo">SEMANA15</b> · ya va aplicado en cada botón</span><span class="no-cod">Ya aplicado en cada botón</span></span></div>
+    <div class="promo-reloj" role="timer" aria-live="off"><small>Termina en</small><div id="promo-t"><span><b>--</b>días</span><span><b>--</b>hs</span><span><b>--</b>min</span><span><b>--</b>seg</span></div></div>
+    <div class="promo-cuotas"><b>3</b><span>cuotas<br>sin interés</span></div>
+  </div>
+</section>
+
+<!-- ═════════ PROBLEMA (P.A.S.) ═════════ -->
+<section class="sec pas" aria-labelledby="h-pas">
+  <div class="wrap">
+    <p class="u-amb">// ¿Te suena?</p>
+    <h2 class="d2" id="h-pas">La obra no perdona errores de cálculo</h2>
+    <p class="lead">¿Cuántas veces pusiste plata de tu bolsillo por un material mal calculado? ¿Cuántas obras se te escaparon por tardar días en mandar el presupuesto, mientras otro contestaba en una hora? Y cuando por fin sale, va por WhatsApp en dos líneas y el cliente no entiende por qué cobrás lo que cobrás.</p>
+    <div class="comp2">
+      <article><h3>Sin sistema</h3><ul class="no"><li>Horas haciendo cálculos a mano o en planillas sueltas.</li><li>Materiales mal calculados que se comen tu margen.</li><li>Presupuestos informales por WhatsApp.</li><li>Precios viejos sin forma rápida de actualizarlos.</li></ul></article>
+      <article><h3>Con Proyecta Más</h3><ul class="si"><li>Cómputo y presupuesto en un mismo archivo, en minutos.</li><li>Pedido de materiales con mermas incluidas.</li><li>Presupuesto prolijo, listo para mandar al cliente.</li><li>Actualizás por índice CAC o dólar en segundos.</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section class="carrusel" aria-label="Capturas de las planillas">
+  <div class="capturas" id="capturas" tabindex="0"><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/Captura.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 1" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/1.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 2" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/2_b0e4e41a-fba6-4a13-a46b-0b2c19c1f3ed.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 3" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/3_43da468b-b995-4f4d-9907-e7b421f9ed27.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 4" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/3.1.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 5" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/4.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 6" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/4.1.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 7" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/4.2.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 8" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/4.3.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 9" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/4.4.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 10" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/4.5.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 11" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/5.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 12" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/5.1.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 13" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/6.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 14" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/6.1.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 15" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/6.2.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 16" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/7.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 17" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/7.1.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 18" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/8.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 19" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/9.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 20" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/10.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 21" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/10.1.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 22" loading="lazy" decoding="async" width="1600" height="900"></figure><figure><img src="https://cdn.shopify.com/s/files/1/0878/6470/5381/files/11.png?v=1788831873" alt="Captura de las planillas Proyecta Más, vista 23" loading="lazy" decoding="async" width="1600" height="900"></figure></div>
+  <p class="capturas-ayuda">Tocá cualquier captura para verla en grande</p>
+  <div class="capturas-nav"><button type="button" data-dir="-1" aria-label="Captura anterior">❮</button><button type="button" data-dir="1" aria-label="Captura siguiente">❯</button></div>
+</section>
+
+<!-- ═════════ CÓMO FUNCIONA ═════════ -->
+<section class="sec" aria-labelledby="h-demo" style="padding-bottom:clamp(40px,6vw,64px)">
+  <div class="wrap">
+    <p class="u-amb">// Cómo funciona</p>
+    <h2 class="d2" id="h-demo">Tres pasos y tenés el presupuesto</h2>
+    <ol class="pasos">
+      <li><b>Cargás cantidades y tu zona</b><span>Las celdas azules son las únicas que tocás.</span></li>
+      <li><b>Calcula todo solo</b><span>Materiales con mermas, mano de obra, APU y precio de venta.</span></li>
+      <li><b>Presentás y certificás</b><span>Presupuesto imprimible, compra de materiales y certificación por avance.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═════════ SUITE (producto principal) ═════════ -->
+<section class="sec suite" id="suite" aria-labelledby="h-suite">
+  <div class="wrap">
+    <span class="sello-top">⭐ La más elegida por los que compran</span>
+    <p class="u-amb">// Suite Cómputo y Presupuesto PRO</p>
+    <h2 class="d2" id="h-suite">Toda la obra, de los cimientos a la terminación</h2>
+    <p class="lead" style="margin-top:14px">Para el que presupuesta obras completas: <strong style="color:#fff">32 planillas por rubro + 1 planilla integradora</strong>, con el mismo sistema en todas. Pagás una vez y la usás en todas tus obras.</p>
+    <div class="suite-grid">
+      <div>
+        <div class="suite-img"><img src="https://www.proyectamas.com.ar/assets/productos/suite.webp" alt="Suite Cómputo y Presupuesto PRO" loading="lazy" decoding="async" width="1200" height="750" onerror="this.parentElement.remove()"></div>
+        <ul class="chips"><li class="dest">＋ Planilla integradora</li><li>Electricidad</li><li>Sanitarias</li><li>Gas</li><li>Climatización</li><li>Extinción de Incendio</li><li>Detección de Incendio</li><li>Domótica</li><li>CCTV y Alarmas</li></ul>
+        <details class="mas-rubros"><summary>+24 rubros más</summary><ul class="chips"><li>Energía Solar</li><li>Trabajos Preliminares</li><li>Movimiento de Suelos</li><li>Hormigón Armado</li><li>Albañilería</li><li>Morteros y Hormigones</li><li>Estructuras Hierro y Madera</li><li>Antisísmica y Entrepisos</li><li>Demolición</li><li>Cielorrasos</li><li>Solados</li><li>Revestimientos</li><li>Pintura</li><li>Carpintería</li><li>Herrería</li><li>Vidrios y Policarbonato</li><li>Cubiertas</li><li>Steel Frame</li><li>Paneles SIP</li><li>Wood Frame</li><li>Ascensores</li><li>Paisajismo y Piletas</li><li>Pavimentos y Veredas de H°</li><li>Topografía</li></ul></details>
+        <div class="integradora">
+          <p class="u-amb" style="color:var(--yellow);margin:0 0 8px">// La planilla integradora</p>
+          <h3>Toda la obra en una sola planilla</h3>
+          <p>Todos los rubros y todos los materiales en un mismo archivo. Presupuestás la obra completa sin abrir 32 planillas.</p>
+          <ul class="chk">
+            <li><b>Base completa de materiales</b> con precios unitarios, en un solo lugar para actualizar.</li>
+            <li><b>Análisis de precios (APU)</b> de cada tarea: materiales, mano de obra y equipos.</li>
+            <li><b>Presupuesto interno</b> con costo directo, gastos, imprevistos y utilidad: sabés cuánto ganás.</li>
+            <li><b>Presupuesto para el cliente</b>, prolijo y listo para mandar en PDF.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="precio-box" data-oculta-barra>
+        <div class="antes">Por separado cuestan</div>
+        <s>$956.968</s>
+        <div class="hoy">Hoy te la llevás completa a</div>
+        <div class="ahora" data-p="239242" data-final>$239.242</div>
+        <em class="js-tag">🔥 <span data-promo="etiqueta">Semana de obra</span> · precio especial</em>
+        <div class="ahorro js-ahorro" data-base="239242" data-antes="956968">AHORRÁS $717.726 · 75% OFF</div>
+        <div class="por-planilla">Sale <span class="js-final" data-base="7476">$7.476</span> por planilla (sueltas, desde $19.999)</div>
+        <label class="bump"><input type="checkbox" class="bump-chk" data-id="50392094081381" data-price="59999"><span><span class="bump-tag">🔥 Oferta única en esta página</span><b>¡Sí! Sumá la Biblioteca de 8 manuales</b>Aprendé el método completo con el mismo caso práctico: <em>+<span class="js-final" data-base="59999">$59.999</span></em> <s>$115.992</s></span></label>
+        <a class="btn btn--ink btn--xl js-suite" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Suite%20C%C3%B3mputo%20y%20Presupuesto%20PRO%20%2832%20planillas%20%2B%20integradora%29%20%28%24239.242%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308363387237" data-buy data-price="239242" data-name="Suite Cómputo y Presupuesto PRO">Sí, quiero la suite ❯</a>
+        <ul><li>✓ Pago único, sin suscripción</li><li>📩 Archivos el mismo día por mail o WhatsApp</li><li>🛡️ Garantía de 7 días · devolución del 100%</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ QUIÉN LAS HIZO (texto de la página anterior) ═════════ -->
+<section class="sec autor-sec" id="autor" aria-labelledby="h-autor" style="padding:clamp(44px,6vw,72px) 0">
+  <div class="wrap autor">
+    <img src="https://www.proyectamas.com.ar/assets/img_2035.jpg" alt="Nicolás, Maestro Mayor de Obras, fundador de Proyecta Más" loading="lazy" width="200" height="200">
+    <div>
+      <p class="u-amb">// Quién está detrás</p>
+      <h2 class="d2" id="h-autor" style="font-size:clamp(28px,3.6vw,42px)">Hola, soy Nicolás</h2>
+      <p><b style="color:var(--ink)">Maestro Mayor de Obras y Delineante Técnico.</b> Si alguna vez te quedaste hasta la madrugada armando un presupuesto, sabés de lo que hablo.</p>
+      <p>Durante años hice los cómputos a mano, en obra y en oficina técnica: rubro por rubro, material por material, con el miedo de que se me escape algo y terminar poniendo plata de mi bolsillo. Y mientras tanto, el cliente pidiendo el número para ayer.</p>
+      <p>Estas planillas nacieron de esa bronca. Las armé para mí: para cotizar rápido, con números que se sostienen, y mandar un presupuesto prolijo que muestre que sos un profesional. Porque lo sos.</p>
+      <p>Si tenés una duda antes de comprar, escribime: te respondo yo, no un bot.</p>
+      <div class="firma">Nicolás · Proyecta Más</div>
+      <a class="btn btn--line" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20tengo%20una%20duda%20antes%20de%20comprar%3A%20" target="_blank" rel="noopener">💬 Preguntarme por WhatsApp</a>
+    </div>
+    <div class="autor-datos">
+      <div><b>+25</b><span>profesionales ya compraron las planillas</span></div>
+      <div><b>7 días</b><span>de garantía, devolución del 100%</span></div>
+      <div><b>1 a 1</b><span>soporte por WhatsApp, conmigo</span></div>
+      <div><b>∞</b><span>actualizaciones gratis de por vida</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ RESEÑAS REALES (en el HTML, visibles siempre) ═════════ -->
+<section class="sec" id="resenas" aria-labelledby="h-resenas" style="padding:clamp(40px,6vw,64px) 0">
+  <div class="wrap">
+    <div class="cat-head"><div><p class="u-amb">// Lo que dicen los colegas</p><h2 class="d2" id="h-resenas">Opiniones de quienes ya compraron</h2></div>
+      <p><span class="estrellas">★★★★★</span> <b>5 de 5</b> · reseñas de compradores verificados en la tienda.</p></div>
+    <div class="resenas" id="resenas-lista"><article class="resena"><div class="estrellas" aria-label="5 de 5 estrellas">★★★★★</div><p>“Excelente producto, me es de suma utilidad y fácil manejo. Sumado a la muy buena predisposición del autor, que me atendió muy bien con respecto a una duda que planteé.”</p><small><b>Marcelo P.</b> · ✔ Compra verificada<br>Compró: Suite completa</small></article></div>
+  </div>
+</section>
+
+<!-- ═════════ LO QUE TE LLEVÁS (stack de valor) ═════════ -->
+<section class="sec" id="incluye" aria-labelledby="h-incluye" style="padding-top:0">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:30px"><p class="u-amb">// Todo lo que recibís hoy</p><h2 class="d2" id="h-incluye">Lo que te llevás con la suite</h2></div>
+    <div class="stack" data-oculta-barra>
+      <div class="stack-row"><span>32 planillas PRO, una por rubro<small>De movimiento de suelos a energía solar</small></span><em>$956.968</em></div>
+      <div class="stack-row"><span>Planilla integradora<small>Toda la obra y todos los materiales en un archivo</small></span><em class="reg">Incluida</em></div>
+      <div class="stack-row"><span>Verificador Técnico de Obra<small>24 calculadores para chequear antes de presupuestar</small></span><em class="reg">De regalo</em></div>
+      <div class="stack-row"><span>Libros de arquitectura y tablas útiles de obra<small>Material de consulta para proyectar y presupuestar</small></span><em class="reg">De regalo</em></div>
+      <div class="stack-row"><span>Actualizaciones gratis + índice CAC mensual<small>Las mejoras te llegan sin pagar de nuevo</small></span><em class="reg">De por vida</em></div>
+      <div class="stack-row"><span>Soporte 1 a 1 por WhatsApp<small>Te respondo yo</small></span><em class="reg">Incluido</em></div>
+      <div class="stack-row"><span>Tu perfil en Proyecta Más Red<small>Proponé o recibí proyectos, sin comisiones</small></span><em class="reg">Gratis</em></div>
+      <div class="stack-row"><span>15% OFF en el estudio + 40% OFF 6 meses del software<small>Beneficios de cliente</small></span><em class="reg">Incluido</em></div>
+      <div class="stack-tot">
+        <s>$956.968</s>
+        <b data-p="239242" data-final>$239.242</b>
+        <a class="btn btn--yellow btn--xl js-suite" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Suite%20C%C3%B3mputo%20y%20Presupuesto%20PRO%20%2832%20planillas%20%2B%20integradora%29%20%28%24239.242%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308363387237" data-buy data-price="239242" data-name="Suite Cómputo y Presupuesto PRO">Llevarme todo esto ❯</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ COMPARATIVA ═════════ -->
+<section class="sec" id="comparar" aria-labelledby="h-comp" style="padding-top:0">
+  <div class="wrap">
+    <div class="cat-head"><div><p class="u-amb">// Hacé la cuenta</p><h2 class="d2" id="h-comp">Suelta, pack o suite</h2></div><p>La suite cuesta menos que dos packs juntos: Instalaciones + Terminaciones salen $278.491.</p></div>
+    <div class="tabla-wrap">
+      <table class="comp">
+        <thead><tr><th></th><th>Planilla suelta</th><th>Pack por etapa</th><th class="col-suite">Suite completa</th></tr></thead>
+        <tbody>
+          <tr><td>Precio</td><td>$19.999 a $39.999</td><td>$59.996 a $166.495</td><td class="col-suite"><b class="js-final" data-base="239242">$239.242</b></td></tr>
+          <tr><td>Planillas</td><td>1</td><td>3 a 9</td><td class="col-suite"><b>32</b></td></tr>
+          <tr><td>Precio por planilla</td><td>$19.999 a $39.999</td><td>$15.000 a $20.000</td><td class="col-suite"><b class="js-final" data-base="7476">$7.476</b></td></tr>
+          <tr><td>Planilla integradora</td><td class="no">✕</td><td class="no">✕</td><td class="col-suite si">✓</td></tr>
+          <tr><td>Verificador Técnico (24 calculadores)</td><td class="no">✕</td><td class="no">✕</td><td class="col-suite si">✓</td></tr>
+          <tr><td>Libros y tablas de regalo</td><td class="no">✕</td><td class="no">✕</td><td class="col-suite si">✓</td></tr>
+          <tr><td>Garantía, cuotas y soporte</td><td class="si">✓</td><td class="si">✓</td><td class="col-suite si">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:22px;text-align:center"><a class="btn btn--ink btn--xl js-suite" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Suite%20C%C3%B3mputo%20y%20Presupuesto%20PRO%20%2832%20planillas%20%2B%20integradora%29%20%28%24239.242%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308363387237" data-buy data-price="239242" data-name="Suite Cómputo y Presupuesto PRO">Quiero la suite completa ❯</a></p>
+  </div>
+</section>
+
+<!-- ═════════ GARANTÍA + FAQ (justo cuando está decidiendo) ═════════ -->
+<section class="sec" id="faq" aria-labelledby="h-faq" style="padding-top:0">
+  <div class="wrap">
+    <p class="u-amb">// Comprá tranquilo</p>
+    <h2 class="d2" id="h-faq" style="margin-bottom:24px">Garantía y preguntas</h2>
+    <div class="garantia"><div class="icono">🛡️</div><div><h3>Garantía de 7 días: el riesgo es mío</h3><p>Si la planilla no te sirve para tu trabajo, escribime dentro de los 7 días y te devuelvo el 100%. Sin vueltas ni formularios.</p></div></div>
+    <details><summary>¿Necesito saber Excel avanzado?</summary><p>No. Las celdas azules son las únicas que tocás (cantidades y precios); todo lo demás se calcula solo. Cada planilla trae una guía rápida.</p></details>
+    <details><summary>¿Funciona en mi versión de Excel?</summary><p>Excel 2016 en adelante y Excel 365. También abre en LibreOffice y Google Sheets, con funciones completas en Excel de escritorio. Sin macros: no salta ninguna alerta de seguridad.</p></details>
+    <details><summary>¿Los precios de materiales vienen cargados?</summary><p>Sí, con precios de referencia del mercado argentino. Los actualizás por índice CAC o dólar, y podés pisar cualquier precio con el de tu proveedor.</p></details>
+    <details><summary>¿Sirven en todo el país?</summary><p>Sí. El sistema de zonas ajusta la mano de obra: Base, Zona A, B, C y C Austral (hasta +50% en Patagonia).</p></details>
+    <details><summary>¿Cómo pago y cómo recibo los archivos?</summary><p>Tocás el botón y me escribís por WhatsApp con el pedido ya armado. Te paso un link de pago de Mercado Pago (tarjeta de crédito en hasta 3 cuotas sin interés, débito o dinero en cuenta) y apenas se acredita te mando los archivos por mail o por WhatsApp.</p></details>
+    <details><summary>¿Es seguro pagar?</summary><p>Sí. Pagás en Mercado Pago, con el link oficial que te mando por WhatsApp. Los datos de tu tarjeta nunca pasan por mí.</p></details>
+    
+    <details><summary>¿Puedo comprar varias planillas juntas?</summary><p>Sí. Tocá "Agregar" en cada una y pagás todo junto desde la barra de abajo. Si vas a llevar muchas, mirá antes los packs y la suite: salen mucho menos.</p></details>
+    <p style="margin-top:22px"><a class="btn btn--ink" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20%C2%BFqu%C3%A9%20planilla%20o%20pack%20me%20conviene%3F%20Hago%20obras%20de%3A%20" target="_blank" rel="noopener">¿No sabés cuál te conviene? Preguntame</a></p>
+  </div>
+</section>
+
+<!-- ═════════ PACKS (compactos) ═════════ -->
+<section class="sec" id="packs" aria-labelledby="h-packs" style="background:var(--sheet);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="cat-head">
+      <div><p class="u-amb">// ¿Hacés un solo tipo de obra?</p><h2 class="d2" id="h-packs">Packs según tu oficio</h2></div>
+      <p>Cinco packs a mitad de precio frente a comprar cada planilla. Sumá varios y me mandás el pedido junto por WhatsApp.</p>
+    </div>
+    <div class="aviso-suite"><span>💡 Los 5 packs juntos salen $478.481. La suite trae los mismos 32 rubros + la integradora por <span class="js-final" data-base="239242">$239.242</span>.</span><a class="btn btn--ink" href="#suite">Ver la suite</a></div>
+    <div class="pk-grid">
+      <article class="pk pk--dest">
+        <span class="pr-et">Más elegido de los packs</span>
+        <div class="pk-top"><h3>Pack Instalaciones</h3><span class="pk-n">9 planillas</span></div>
+        <p class="pk-items">Electricidad · Sanitarias · Gas · Climatización · Extinción de Incendio · Detección de Incendio · Domótica · CCTV y Alarmas · Energía Solar</p>
+        <div class="pr-precio" data-p="166495" data-final><s>$332.991</s> <span class="num">$166.495</span></div>
+        <small style="color:var(--muted);font-size:13px">Pago único · <span class="js-final" data-base="18499">$18.499</span> por planilla</small>
+        <div class="pr-btns"><a class="btn btn--ink" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Pack%20Instalaciones%20%28%24166.495%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308353458533" data-add data-id="50308353458533" data-price="166495" data-name="Pack Instalaciones">Agregar pack</a><a class="pr-ver" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Pack%20Instalaciones%20%28%24166.495%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308353458533" data-buy data-price="166495" data-name="Pack Instalaciones">Comprar ya</a></div>
+      </article>
+      <article class="pk">
+        
+        <div class="pk-top"><h3>Pack Obra Gruesa y Estructuras</h3><span class="pk-n">8 planillas</span></div>
+        <p class="pk-items">Trabajos Preliminares · Movimiento de Suelos · Hormigón Armado · Albañilería · Morteros y Hormigones · Estructuras Hierro y Madera · Antisísmica y Entrepisos · Demolición</p>
+        <div class="pr-precio" data-p="79996" data-final><s>$159.992</s> <span class="num">$79.996</span></div>
+        <small style="color:var(--muted);font-size:13px">Pago único · <span class="js-final" data-base="10000">$10.000</span> por planilla</small>
+        <div class="pr-btns"><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Pack%20Obra%20Gruesa%20y%20Estructuras%20%28%2479.996%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308354867557" data-add data-id="50308354867557" data-price="79996" data-name="Pack Obra Gruesa y Estructuras">Agregar pack</a><a class="pr-ver" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Pack%20Obra%20Gruesa%20y%20Estructuras%20%28%2479.996%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308354867557" data-buy data-price="79996" data-name="Pack Obra Gruesa y Estructuras">Comprar ya</a></div>
+      </article>
+      <article class="pk">
+        
+        <div class="pk-top"><h3>Pack Terminaciones</h3><span class="pk-n">8 planillas</span></div>
+        <p class="pk-items">Cielorrasos · Solados · Revestimientos · Pintura · Carpintería · Herrería · Vidrios · Cubiertas</p>
+        <div class="pr-precio" data-p="111996" data-final><s>$223.992</s> <span class="num">$111.996</span></div>
+        <small style="color:var(--muted);font-size:13px">Pago único · <span class="js-final" data-base="14000">$14.000</span> por planilla</small>
+        <div class="pr-btns"><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Pack%20Terminaciones%20%28%24111.996%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308353556837" data-add data-id="50308353556837" data-price="111996" data-name="Pack Terminaciones">Agregar pack</a><a class="pr-ver" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Pack%20Terminaciones%20%28%24111.996%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308353556837" data-buy data-price="111996" data-name="Pack Terminaciones">Comprar ya</a></div>
+      </article>
+      <article class="pk">
+        
+        <div class="pk-top"><h3>Pack Construcción en Seco</h3><span class="pk-n">3 planillas</span></div>
+        <p class="pk-items">Steel Frame · Paneles SIP · Wood Frame</p>
+        <div class="pr-precio" data-p="59998" data-final><s>$119.997</s> <span class="num">$59.998</span></div>
+        <small style="color:var(--muted);font-size:13px">Pago único · <span class="js-final" data-base="19999">$19.999</span> por planilla</small>
+        <div class="pr-btns"><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Pack%20Construcci%C3%B3n%20en%20Seco%20%28%2459.998%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308353491301" data-add data-id="50308353491301" data-price="59998" data-name="Pack Construcción en Seco">Agregar pack</a><a class="pr-ver" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Pack%20Construcci%C3%B3n%20en%20Seco%20%28%2459.998%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308353491301" data-buy data-price="59998" data-name="Pack Construcción en Seco">Comprar ya</a></div>
+      </article>
+      <article class="pk">
+        
+        <div class="pk-top"><h3>Pack Obras Especiales</h3><span class="pk-n">4 planillas</span></div>
+        <p class="pk-items">Ascensores · Paisajismo y Piletas · Pavimentos y veredas de H° · Topografía</p>
+        <div class="pr-precio" data-p="59996" data-final><s>$119.996</s> <span class="num">$59.996</span></div>
+        <small style="color:var(--muted);font-size:13px">Pago único · <span class="js-final" data-base="14999">$14.999</span> por planilla</small>
+        <div class="pr-btns"><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Pack%20Obras%20Especiales%20%28%2459.996%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308348739941" data-add data-id="50308348739941" data-price="59996" data-name="Pack Obras Especiales">Agregar pack</a><a class="pr-ver" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Pack%20Obras%20Especiales%20%28%2459.996%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308348739941" data-buy data-price="59996" data-name="Pack Obras Especiales">Comprar ya</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ PLANILLAS SUELTAS (plegadas) ═════════ -->
+<section class="sec" id="planillas" aria-labelledby="h-planillas" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <details class="sueltas">
+      <summary id="h-planillas">Ver las 32 planillas sueltas (desde $19.999)</summary>
+      <div class="sueltas-in">
+        <p style="color:var(--muted);font-size:15px">Cada planilla trae base de materiales con precios, APU de cada tarea, mano de obra con recargo por zona, certificación de avance, calculadora técnica y manual del rubro.</p>
+<p class="fila-g"><span>Instalaciones</span><small>9 planillas · $36.999 c/u</small></p><ul class="filas"><li><div><b>Electricidad PRO</b><small>+20.175 materiales cargados</small></div><span class="fp js-final" data-base="36999">$36.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Electricidad%20PRO%20%28%2436.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308366729573" data-add data-id="50308366729573" data-price="36999" data-name="Electricidad PRO">Agregar</a></li><li><div><b>Sanitarias PRO</b><small>Agua · cloacal · pluvial</small></div><span class="fp js-final" data-base="36999">$36.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Sanitarias%20PRO%20%28%2436.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308366795109" data-add data-id="50308366795109" data-price="36999" data-name="Sanitarias PRO">Agregar</a></li><li><div><b>Gas PRO</b><small>Cañerías · artefactos · NAG-200</small></div><span class="fp js-final" data-base="36999">$36.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Gas%20PRO%20%28%2436.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308368793957" data-add data-id="50308368793957" data-price="36999" data-name="Gas PRO">Agregar</a></li><li><div><b>Climatización PRO</b><small>Splits · VRF · carga térmica BTU</small></div><span class="fp js-final" data-base="36999">$36.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Climatizaci%C3%B3n%20PRO%20%28%2436.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308369908069" data-add data-id="50308369908069" data-price="36999" data-name="Climatización PRO">Agregar</a></li><li><div><b>Extinción de Incendio PRO</b><small>IRAM 2399 · NFPA 13</small></div><span class="fp js-final" data-base="36999">$36.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Extinci%C3%B3n%20de%20Incendio%20PRO%20%28%2436.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308370104677" data-add data-id="50308370104677" data-price="36999" data-name="Extinción de Incendio PRO">Agregar</a></li><li><div><b>Detección de Incendio PRO</b><small>IRAM 3546/3632 · NFPA 72</small></div><span class="fp js-final" data-base="36999">$36.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Detecci%C3%B3n%20de%20Incendio%20PRO%20%28%2436.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308370039141" data-add data-id="50308370039141" data-price="36999" data-name="Detección de Incendio PRO">Agregar</a></li><li><div><b>Domótica PRO</b><small>Zigbee · KNX · puntos domóticos</small></div><span class="fp js-final" data-base="36999">$36.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Dom%C3%B3tica%20PRO%20%28%2436.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308395532645" data-add data-id="50308395532645" data-price="36999" data-name="Domótica PRO">Agregar</a></li><li><div><b>CCTV y Alarmas PRO</b><small>Cámaras IP · NVR · almacenamiento</small></div><span class="fp js-final" data-base="36999">$36.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20CCTV%20y%20Alarmas%20PRO%20%28%2436.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308395696485" data-add data-id="50308395696485" data-price="36999" data-name="CCTV y Alarmas PRO">Agregar</a></li><li><div><b>Energía Solar PRO</b><small>On-grid · off-grid · dimensionamiento</small></div><span class="fp js-final" data-base="36999">$36.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Energ%C3%ADa%20Solar%20PRO%20%28%2436.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308395729253" data-add data-id="50308395729253" data-price="36999" data-name="Energía Solar PRO">Agregar</a></li></ul>
+<p class="fila-g"><span>Obra gruesa y estructuras</span><small>8 planillas · $19.999 c/u</small></p><ul class="filas"><li><div><b>Trabajos Preliminares PRO</b><small>Obrador · instalaciones provisorias</small></div><span class="fp js-final" data-base="19999">$19.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Trabajos%20Preliminares%20PRO%20%28%2419.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50311764869477" data-add data-id="50311764869477" data-price="19999" data-name="Trabajos Preliminares PRO">Agregar</a></li><li><div><b>Movimiento de Suelos PRO</b><small>Excavación · relleno · esponjamiento</small></div><span class="fp js-final" data-base="19999">$19.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Movimiento%20de%20Suelos%20PRO%20%28%2419.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308373578085" data-add data-id="50308373578085" data-price="19999" data-name="Movimiento de Suelos PRO">Agregar</a></li><li><div><b>Hormigón Armado PRO</b><small>Hormigón, acero y encofrado</small></div><span class="fp js-final" data-base="19999">$19.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Hormig%C3%B3n%20Armado%20PRO%20%28%2419.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308373643621" data-add data-id="50308373643621" data-price="19999" data-name="Hormigón Armado PRO">Agregar</a></li><li><div><b>Albañilería PRO</b><small>Mampostería · contrapisos</small></div><span class="fp js-final" data-base="19999">$19.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Alba%C3%B1iler%C3%ADa%20PRO%20%28%2419.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308373807461" data-add data-id="50308373807461" data-price="19999" data-name="Albañilería PRO">Agregar</a></li><li><div><b>Morteros y Hormigones PRO</b><small>Dosificador de mezclas completo</small></div><span class="fp js-final" data-base="19999">$19.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Morteros%20y%20Hormigones%20PRO%20%28%2419.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308376920421" data-add data-id="50308376920421" data-price="19999" data-name="Morteros y Hormigones PRO">Agregar</a></li><li><div><b>Estructuras Hierro y Madera PRO</b><small>IPN/UPN · tirantería · cálculo de peso</small></div><span class="fp js-final" data-base="19999">$19.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Estructuras%20Hierro%20y%20Madera%20PRO%20%28%2419.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308377018725" data-add data-id="50308377018725" data-price="19999" data-name="Estructuras Hierro y Madera PRO">Agregar</a></li><li><div><b>Antisísmica y Entrepisos PRO</b><small>CIRSOC 103 · entrepisos secos y húmedos</small></div><span class="fp js-final" data-base="19999">$19.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Antis%C3%ADsmica%20y%20Entrepisos%20PRO%20%28%2419.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308377051493" data-add data-id="50308377051493" data-price="19999" data-name="Antisísmica y Entrepisos PRO">Agregar</a></li><li><div><b>Demolición PRO</b><small>Cómputo, APU y presupuesto del rubro</small></div><span class="fp js-final" data-base="19999">$19.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Demolici%C3%B3n%20PRO%20%28%2419.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308395762021" data-add data-id="50308395762021" data-price="19999" data-name="Demolición PRO">Agregar</a></li></ul>
+<p class="fila-g"><span>Terminaciones</span><small>8 planillas · $27.999 c/u</small></p><ul class="filas"><li><div><b>Cielorrasos PRO</b><small>Suspendidos · aplicados · consumos</small></div><span class="fp js-final" data-base="27999">$27.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Cielorrasos%20PRO%20%28%2427.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308605182309" data-add data-id="50308605182309" data-price="27999" data-name="Cielorrasos PRO">Agregar</a></li><li><div><b>Solados PRO</b><small>Porcelanato · cerámica · cálculo de piezas</small></div><span class="fp js-final" data-base="27999">$27.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Solados%20PRO%20%28%2427.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308377444709" data-add data-id="50308377444709" data-price="27999" data-name="Solados PRO">Agregar</a></li><li><div><b>Revestimientos PRO</b><small>Cómputo, APU y presupuesto del rubro</small></div><span class="fp js-final" data-base="27999">$27.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Revestimientos%20PRO%20%28%2427.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50311773847909" data-add data-id="50311773847909" data-price="27999" data-name="Revestimientos PRO">Agregar</a></li><li><div><b>Pintura PRO</b><small>Cálculo de litros · rendimientos</small></div><span class="fp js-final" data-base="27999">$27.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Pintura%20PRO%20%28%2427.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308377543013" data-add data-id="50308377543013" data-price="27999" data-name="Pintura PRO">Agregar</a></li><li><div><b>Carpintería PRO</b><small>Aberturas · planilla de aberturas</small></div><span class="fp js-final" data-base="27999">$27.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Carpinter%C3%ADa%20PRO%20%28%2427.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308377575781" data-add data-id="50308377575781" data-price="27999" data-name="Carpintería PRO">Agregar</a></li><li><div><b>Herrería PRO</b><small>Rejas · portones · peso de perfiles</small></div><span class="fp js-final" data-base="27999">$27.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Herrer%C3%ADa%20PRO%20%28%2427.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308377641317" data-add data-id="50308377641317" data-price="27999" data-name="Herrería PRO">Agregar</a></li><li><div><b>Vidrios y Policarbonato PRO</b><small>Float · DVH · cálculo por vano</small></div><span class="fp js-final" data-base="27999">$27.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Vidrios%20y%20Policarbonato%20PRO%20%28%2427.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308377674085" data-add data-id="50308377674085" data-price="27999" data-name="Vidrios y Policarbonato PRO">Agregar</a></li><li><div><b>Cubiertas PRO</b><small>Chapas · tejas · cálculo de pendiente</small></div><span class="fp js-final" data-base="27999">$27.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Cubiertas%20PRO%20%28%2427.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308377706853" data-add data-id="50308377706853" data-price="27999" data-name="Cubiertas PRO">Agregar</a></li></ul>
+<p class="fila-g"><span>Construcción en seco</span><small>3 planillas · $39.999 c/u</small></p><ul class="filas"><li><div><b>Steel Frame PRO</b><small>Tabiques · PGC/PGU · consumos</small></div><span class="fp js-final" data-base="39999">$39.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Steel%20Frame%20PRO%20%28%2439.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308377739621" data-add data-id="50308377739621" data-price="39999" data-name="Steel Frame PRO">Agregar</a></li><li><div><b>Paneles SIP PRO</b><small>OSB + EPS · paneles por superficie</small></div><span class="fp js-final" data-base="39999">$39.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Paneles%20SIP%20PRO%20%28%2439.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308377772389" data-add data-id="50308377772389" data-price="39999" data-name="Paneles SIP PRO">Agregar</a></li><li><div><b>Wood Frame PRO</b><small>CIRSOC 601 · montantes y placas</small></div><span class="fp js-final" data-base="39999">$39.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Wood%20Frame%20PRO%20%28%2439.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308382228837" data-add data-id="50308382228837" data-price="39999" data-name="Wood Frame PRO">Agregar</a></li></ul>
+<p class="fila-g"><span>Obras especiales</span><small>4 planillas · $29.999 c/u</small></p><ul class="filas"><li><div><b>Ascensores PRO</b><small>Equipos · obra civil · tráfico</small></div><span class="fp js-final" data-base="29999">$29.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Ascensores%20PRO%20%28%2429.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308395794789" data-add data-id="50308395794789" data-price="29999" data-name="Ascensores PRO">Agregar</a></li><li><div><b>Paisajismo y Piletas PRO</b><small>H°A° · fibra · riego · volumen</small></div><span class="fp js-final" data-base="29999">$29.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Paisajismo%20y%20Piletas%20PRO%20%28%2429.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308395958629" data-add data-id="50308395958629" data-price="29999" data-name="Paisajismo y Piletas PRO">Agregar</a></li><li><div><b>Pavimentos y Veredas de H° PRO</b><small>Cómputo, APU y presupuesto del rubro</small></div><span class="fp js-final" data-base="29999">$29.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Pavimentos%20y%20Veredas%20de%20H%C2%B0%20PRO%20%28%2429.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308396056933" data-add data-id="50308396056933" data-price="29999" data-name="Pavimentos y Veredas de H° PRO">Agregar</a></li><li><div><b>Topografía PRO</b><small>Cómputo, APU y presupuesto del rubro</small></div><span class="fp js-final" data-base="29999">$29.999</span><a class="btn btn--yellow" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Planilla%20Topograf%C3%ADa%20PRO%20%28%2429.999%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50332734161253" data-add data-id="50332734161253" data-price="29999" data-name="Topografía PRO">Agregar</a></li></ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ═════════ CIERRE ═════════ -->
+<section class="sec final" aria-labelledby="h-final" data-oculta-barra>
+  <div class="wrap">
+    <h2 id="h-final">Tu próximo presupuesto, hecho en minutos</h2>
+    <p>Las 32 planillas, la integradora, el verificador y los libros. Pagás una vez, la usás en todas tus obras y si no te sirve te devuelvo la plata.</p>
+    <div class="final-precio"><s>$956.968</s><b data-p="239242" data-final>$239.242</b></div>
+    <label class="bump"><input type="checkbox" class="bump-chk" data-id="50392094081381" data-price="59999"><span><span class="bump-tag">🔥 Oferta única en esta página</span><b>¡Sí! Sumá la Biblioteca de 8 manuales</b>Aprendé el método completo con el mismo caso práctico: <em>+<span class="js-final" data-base="59999">$59.999</span></em> <s>$115.992</s></span></label>
+    <div><a class="btn btn--ink btn--xl js-suite" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Suite%20C%C3%B3mputo%20y%20Presupuesto%20PRO%20%2832%20planillas%20%2B%20integradora%29%20%28%24239.242%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308363387237" data-buy data-price="239242" data-name="Suite Cómputo y Presupuesto PRO">Sí, quiero la suite completa ❯</a></div>
+    <p class="final-mini">🛡️ Garantía de 7 días · 📩 Entrega el mismo día · 💳 3 cuotas sin interés</p>
+  </div>
+</section>
+
+<!-- ═════════ ¿TODAVÍA NO? DEMO A CAMBIO DEL MAIL ═════════ -->
+<section class="sec" id="demo-gratis" aria-labelledby="h-gratis">
+  <div class="wrap">
+    <div class="gratis demo-box">
+      <div class="big" aria-hidden="true">$0</div>
+      <div>
+        <h2 id="h-gratis">¿Todavía no te decidís? Probá la demo</h2>
+        <p>La misma arquitectura de la suite, recortada, para que veas cómo calcula. Pedímela por WhatsApp y te la mando.</p>
+        <a class="btn btn--ink" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20la%20demo%20gratis%20de%20la%20planilla" target="_blank" rel="noopener">Pedila por WhatsApp</a><small>Te la mando al toque por WhatsApp, sin compromiso.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ PROYECTA MÁS RED ═════════ -->
+<section class="sec" id="red" aria-labelledby="h-red" style="padding-top:0">
+  <div class="wrap">
+    <div class="red-box">
+      <div>
+        <p class="u-amb" style="color:var(--yellow)">// Gratis · ya está abierta</p>
+        <h2 id="h-red">Sumate a Proyecta Más Red</h2>
+        <p>Proponé o recibí proyectos de arquitectura y construcción: estudios, empresas y particulares publican trabajos y los profesionales mandan su propuesta.</p>
+        <ul><li>Gratis y sin comisiones</li><li>Sin límite de propuestas</li><li>Para arquitectos, MMO, ingenieros y técnicos</li></ul>
+      </div>
+      <div style="display:grid;gap:12px">
+        <a class="btn btn--yellow btn--xl" href="https://red.proyectamas.com.ar/?utm_source=tienda&utm_medium=landing-planillas" target="_blank" rel="noopener">Soy profesional, quiero sumarme ❯</a>
+        <a class="btn btn--ghost" href="https://red.proyectamas.com.ar/?utm_source=tienda&utm_medium=landing-planillas#publicar" target="_blank" rel="noopener">Tengo un proyecto para publicar</a>
+        <small>Te creás la cuenta en un minuto, desde el celular.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><span class="logo" style="font-size:28px">PROYECTA<span> +</span></span><br>Proyectar · Modelar · Construir · Desarrollar</div>
+    <div>
+      <a href="/manuales">Manuales técnicos</a> · <a href="/">Inicio de la tienda</a> · <a href="https://proyectamas.com.ar" target="_blank" rel="noopener">proyectamas.com.ar</a> · <a href="https://instagram.com/_proyectamas_" target="_blank" rel="noopener">@_proyectamas_</a> · <a href="mailto:hola@proyectamas.com.ar">hola@proyectamas.com.ar</a><br>
+      Precios en pesos argentinos, sujetos a cambios.
+    </div>
+  </div>
+</footer>
+
+<div class="visor" id="visor" role="dialog" aria-modal="true" aria-label="Captura ampliada" hidden>
+  <button type="button" class="visor-x" aria-label="Cerrar">✕</button>
+  <button type="button" class="visor-nav visor-prev" aria-label="Anterior">❮</button>
+  <div class="visor-img"><img alt="" id="visor-img" width="1600" height="900"></div>
+  <button type="button" class="visor-nav visor-next" aria-label="Siguiente">❯</button>
+  <p class="visor-pie" id="visor-pie"></p>
+</div>
+
+<div id="carrito" role="region" aria-label="Tu selección">
+  <div><small id="cart-n">0 productos</small><b id="cart-t">$0</b><small id="cart-c" style="color:var(--yellow);text-transform:none"></small></div>
+  <div style="display:flex;align-items:center;gap:12px"><button class="vaciar" type="button" id="cart-x">Vaciar</button><a class="btn btn--yellow" id="cart-go" href="#">Pedir por WhatsApp ❯</a></div>
+</div>
+
+<div id="barra" role="region" aria-label="Comprar la suite">
+  <div><small>Suite completa · <span class="js-pct" data-base="239242" data-antes="956968">75% OFF</span></small><s>$956.968</s><b class="js-final" data-base="239242">$239.242</b></div>
+  <a class="btn btn--yellow js-suite" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20quiero%20comprar%3A%0A-%20Suite%20C%C3%B3mputo%20y%20Presupuesto%20PRO%20%2832%20planillas%20%2B%20integradora%29%20%28%24239.242%29%0A%C2%BFMe%20pas%C3%A1s%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" data-vid="50308363387237" data-buy data-price="239242" data-name="Suite Cómputo y Presupuesto PRO">Comprarla ❯</a>
+</div>
+<a id="wsp" href="https://wa.me/5493425104877?text=Hola%20Nicol%C3%A1s%2C%20tengo%20una%20consulta" target="_blank" rel="noopener" aria-label="Escribime por WhatsApp" onclick="if(window.fbq)fbq('track','Contact')">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.5c0 2.4.7 4.7 1.9 6.6L3 29l7.1-2.1c1.8 1 3.8 1.5 5.9 1.5 7 0 12.7-5.6 12.7-12.5S23 3 16 3zm0 22.9c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.2 1.2 1.3-4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C5.4 9.8 10.1 5.3 16 5.3s10.6 4.5 10.6 10.1S21.9 25.9 16 25.9zm5.8-7.6c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.5c.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.5 3.1 1.2 3.1.8 3.7.8.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+<script>
+/* ======= AJUSTES QUE PODÉS TOCAR ======= */
+// Las promos se agendan en https://www.proyectamas.com.ar/js/promos.js (código, % y fechas). Acá no hay que tocar nada.
+var PROMO_ACTIVA = window.PROMO || null;
+var CUPON = "", CUPON_PCT = PROMO_ACTIVA ? PROMO_ACTIVA.porcentaje : 0;
+var OFERTA_HASTA = PROMO_ACTIVA ? PROMO_ACTIVA.hasta : "";
+// Reseñas REALES de compradores (Judge.me o WhatsApp, con su permiso). Ejemplo:
+// { texto: "...", nombre: "Juan P.", oficio: "MMO", ciudad: "Rosario", producto: "Suite completa", foto: "https://cdn.shopify.com/...captura.jpg" }
+var RESENAS = []; /* las reseñas principales ya están en el HTML; esto es solo para sumar extra */
+
+var CART = "";
+var MODO_WSP = true, VIDS = {"50308363387237": ["Suite Cómputo y Presupuesto PRO (32 planillas + integradora)", 239242], "50308353458533": ["Pack Instalaciones", 166495], "50308354867557": ["Pack Obra Gruesa y Estructuras", 79996], "50308353556837": ["Pack Terminaciones", 111996], "50308353491301": ["Pack Construcción en Seco", 59998], "50308348739941": ["Pack Obras Especiales", 59996], "50308366729573": ["Planilla Electricidad PRO", 36999], "50308366795109": ["Planilla Sanitarias PRO", 36999], "50308368793957": ["Planilla Gas PRO", 36999], "50308369908069": ["Planilla Climatización PRO", 36999], "50308370104677": ["Planilla Extinción de Incendio PRO", 36999], "50308370039141": ["Planilla Detección de Incendio PRO", 36999], "50308395532645": ["Planilla Domótica PRO", 36999], "50308395696485": ["Planilla CCTV y Alarmas PRO", 36999], "50308395729253": ["Planilla Energía Solar PRO", 36999], "50311764869477": ["Planilla Trabajos Preliminares PRO", 19999], "50308373578085": ["Planilla Movimiento de Suelos PRO", 19999], "50308373643621": ["Planilla Hormigón Armado PRO", 19999], "50308373807461": ["Planilla Albañilería PRO", 19999], "50308376920421": ["Planilla Morteros y Hormigones PRO", 19999], "50308377018725": ["Planilla Estructuras Hierro y Madera PRO", 19999], "50308377051493": ["Planilla Antisísmica y Entrepisos PRO", 19999], "50308395762021": ["Planilla Demolición PRO", 19999], "50308605182309": ["Planilla Cielorrasos PRO", 27999], "50308377444709": ["Planilla Solados PRO", 27999], "50311773847909": ["Planilla Revestimientos PRO", 27999], "50308377543013": ["Planilla Pintura PRO", 27999], "50308377575781": ["Planilla Carpintería PRO", 27999], "50308377641317": ["Planilla Herrería PRO", 27999], "50308377674085": ["Planilla Vidrios y Policarbonato PRO", 27999], "50308377706853": ["Planilla Cubiertas PRO", 27999], "50308377739621": ["Planilla Steel Frame PRO", 39999], "50308377772389": ["Planilla Paneles SIP PRO", 39999], "50308382228837": ["Planilla Wood Frame PRO", 39999], "50308395794789": ["Planilla Ascensores PRO", 29999], "50308395958629": ["Planilla Paisajismo y Piletas PRO", 29999], "50308396056933": ["Planilla Pavimentos y Veredas de H° PRO", 29999], "50332734161253": ["Planilla Topografía PRO", 29999], "50392094081381": ["Biblioteca completa Proyecta + (8 manuales)", 59999], "biblioteca-proyecta-mas": ["Biblioteca completa Proyecta + (8 manuales)", 59999], "manual-proyecto-integral": ["Manual de Proyecto Integral", 17999], "kit-proyecto-instalaciones": ["Kit completo · Proyecto de Instalaciones", 19999], "manual-proyecto-instalaciones": ["Manual de Proyecto de Instalaciones", 13999], "manual-presupuesto-de-obra": ["Presupuesto de obra · análisis de precios", 13999], "pack-software-para-obra": ["Pack Software para obra", 44999], "manual-bim-revit": ["BIM con Revit", 13999], "manual-autocad": ["AutoCAD", 13999], "manual-sketchup": ["SketchUp", 13999], "manual-ms-project": ["MS Project", 13999], "manual-excel-para-obra": ["Excel para obra", 13999]};
+/* ======================================= */
+(function(){
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $ = function(s){return document.querySelector(s)}, $$ = function(s){return document.querySelectorAll(s)};
+
+  /* Fórmula tipeada */
+  var el = $("#typed");
+  if (el) { var frases = ['=PRESUPUESTO("tu obra")','=MATERIALES+MO*ZONA','=CERTIFICAR(avance)','=GANAR(tiempo)+GANAR(plata)'];
+    if (reduce) el.textContent = frases[0]; else (function(){var f=0,i=0,b=false;(function tick(){var t=frases[f];
+      if(!b){el.textContent=t.slice(0,++i);if(i===t.length){b=true;return setTimeout(tick,2000)}setTimeout(tick,55)}
+      else{el.textContent=t.slice(0,--i);if(i===0){b=false;f=(f+1)%frases.length;return setTimeout(tick,350)}setTimeout(tick,25)}})()})(); }
+
+  /* Fondo de celdas en el hero */
+  var cv = $("#plano");
+  if (cv) { var ctx=cv.getContext("2d"),hero=cv.parentElement,W=0,H=0,cw=80,ch=30,pts=[],cur={x:-999,y:-999},mouse=null,t=0,visible=true;
+    function size(){var dpr=Math.min(devicePixelRatio||1,2);W=hero.clientWidth;H=hero.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+      var g=W<700?26:32;cw=g*2.6;ch=g*.95;pts=[];for(var r=0;r*ch<H+ch;r++)for(var c=0;c*cw<W+cw;c++)pts.push({x:c*cw,y:r*ch,glow:0,val:(Math.random()*9000+100)|0});}
+    function draw(){if(!visible)return requestAnimationFrame(draw);t++;var tx,ty;
+      if(mouse){tx=mouse.x;ty=mouse.y}else{var s=t*.0045;if(W<700){tx=W*(.5+.36*Math.sin(s*1.3));ty=H*(.2+.1*Math.sin(s*.9+1.2))}else{tx=W*(.78+.13*Math.sin(s*1.3));ty=H*(.52+.24*Math.sin(s*.9+1.2))}}
+      if(cur.x<-900){cur.x=tx;cur.y=ty}cur.x+=(tx-cur.x)*.12;cur.y+=(ty-cur.y)*.12;
+      ctx.clearRect(0,0,W,H);ctx.font="500 11px Archivo, sans-serif";ctx.textBaseline="middle";
+      for(var i=0;i<pts.length;i++){var p=pts[i],cx=p.x+cw/2,cy=p.y+ch/2,d=Math.hypot(cx-cur.x,cy-cur.y),tg=d<190?1-d/190:0;p.glow+=(tg-p.glow)*.15;
+        ctx.strokeStyle="rgba(255,255,255,.1)";ctx.strokeRect(p.x+.5,p.y+.5,cw,ch);
+        if(p.glow>.03){ctx.fillStyle="rgba(255,229,0,"+(p.glow*.5).toFixed(3)+")";ctx.fillRect(p.x+1,p.y+1,cw-1,ch-1);
+          if(p.glow>.25){if(t%9===0&&Math.random()<.3)p.val=(Math.random()*9000+100)|0;ctx.fillStyle="rgba(255,255,255,"+Math.min(1,p.glow*1.4).toFixed(3)+")";ctx.fillText("$ "+p.val.toLocaleString("es-AR"),p.x+8,cy);}}}
+      var ax=Math.floor(cur.x/cw)*cw,ay=Math.floor(cur.y/ch)*ch;ctx.lineWidth=2;ctx.strokeStyle="rgb(255,229,0)";ctx.strokeRect(ax,ay,cw,ch);ctx.lineWidth=1;
+      if(!reduce)requestAnimationFrame(draw);}
+    size();var rto;addEventListener("resize",function(){clearTimeout(rto);rto=setTimeout(size,120)});
+    hero.addEventListener("pointermove",function(e){var r=cv.getBoundingClientRect();mouse={x:e.clientX-r.left,y:e.clientY-r.top}});
+    hero.addEventListener("pointerleave",function(){mouse=null});
+    if("IntersectionObserver" in window)new IntersectionObserver(function(e){visible=e[0].isIntersecting}).observe(hero);
+    if(reduce){cur.x=W*.7;cur.y=H*.4;t=1;}requestAnimationFrame(draw); }
+
+  /* Capturas + visor */
+  var cap=$("#capturas"), pausa=false;
+  if (cap) {
+    function paso(d){var max=cap.scrollWidth-cap.clientWidth-4;
+      if(d>0&&cap.scrollLeft>=max)cap.scrollTo({left:0,behavior:"smooth"});else if(d<0&&cap.scrollLeft<=0)cap.scrollTo({left:max,behavior:"smooth"});
+      else cap.scrollBy({left:(cap.querySelector("figure")||cap).clientWidth*d+16*d,behavior:"smooth"});}
+    var auto2=null;function arrancar(){if(reduce)return;clearInterval(auto2);auto2=setInterval(function(){if(!pausa)paso(1)},2500)}
+    $$(".capturas-nav button").forEach(function(b){b.addEventListener("click",function(){paso(+b.dataset.dir);arrancar()})});
+    cap.addEventListener("pointerenter",function(){pausa=true});cap.addEventListener("pointerleave",function(){pausa=false});
+    cap.addEventListener("touchstart",function(){pausa=true},{passive:true});cap.addEventListener("touchend",function(){setTimeout(function(){pausa=false},3000)});
+    arrancar();
+    var visor=$("#visor"),vImg=$("#visor-img"),vBox=visor.querySelector(".visor-img"),vPie=$("#visor-pie"),shots=[].slice.call(cap.querySelectorAll("img")),vi=0;
+    function ver(i){vi=(i+shots.length)%shots.length;vImg.src=shots[vi].currentSrc||shots[vi].src;vImg.alt=shots[vi].alt;vBox.classList.remove("zoom");vPie.textContent=(vi+1)+" / "+shots.length+" · tocá la imagen para hacer zoom";}
+    function abrir(i){ver(i);visor.hidden=false;document.body.style.overflow="hidden";pausa=true;visor.querySelector(".visor-x").focus();}
+    function cerrar(){visor.hidden=true;document.body.style.overflow="";pausa=false;}
+    shots.forEach(function(im,i){im.parentElement.addEventListener("click",function(){abrir(i)})});
+    visor.querySelector(".visor-x").addEventListener("click",cerrar);
+    visor.querySelector(".visor-prev").addEventListener("click",function(){ver(vi-1)});
+    visor.querySelector(".visor-next").addEventListener("click",function(){ver(vi+1)});
+    vImg.addEventListener("click",function(){vBox.classList.toggle("zoom")});
+    visor.addEventListener("click",function(e){if(e.target===visor||e.target===vBox)cerrar()});
+    addEventListener("keydown",function(e){if(visor.hidden)return;if(e.key==="Escape")cerrar();if(e.key==="ArrowRight")ver(vi+1);if(e.key==="ArrowLeft")ver(vi-1)});
+  }
+
+  /* Cuotas, cupón y contador real */
+  var ars=new Intl.NumberFormat("es-AR",{style:"currency",currency:"ARS",maximumFractionDigits:0});
+  var fin=new Date(OFERTA_HASTA).getTime(), promoOn=!!PROMO_ACTIVA && !isNaN(fin) && Date.now()<fin;
+  var fmt=function(n){return "$"+Math.round(n).toLocaleString("es-AR")};
+  var semana=function(n){return Math.round(n*(100-CUPON_PCT)/100)};
+  /* Precio de la semana: los precios principales muestran directo el precio con cupón */
+  if(promoOn){
+    $$(".js-final").forEach(function(el){el.textContent=fmt(semana(+el.dataset.base))});
+    $$(".js-pct").forEach(function(el){el.textContent=Math.round(100-semana(+el.dataset.base)*100/(+el.dataset.antes))+"% OFF"});
+    $$(".js-ahorro").forEach(function(el){var b=+el.dataset.base,a=+el.dataset.antes,f=semana(b);el.textContent="AHORRÁS "+fmt(a-f)+" · "+Math.round(100-f*100/a)+"% OFF"});
+  }
+  $$("[data-p]").forEach(function(el){var p=+el.dataset.p;if(!p)return;
+    var esFinal=el.hasAttribute("data-final")&&promoOn, pp=esFinal?semana(p):p;
+    if(esFinal)(el.querySelector(".num")||el).textContent=fmt(pp);
+    var c=document.createElement("div");c.className="cuotas";c.innerHTML="3 cuotas sin interés de <b>"+fmt(Math.ceil(pp/3))+"</b>";el.insertAdjacentElement("afterend",c);
+    if(promoOn&&!esFinal){var k=document.createElement("div");k.className="cupon-precio";k.innerHTML="🔥 "+(CUPON?"Con cupón "+CUPON:"Con "+CUPON_PCT+"% OFF")+": <b>"+fmt(semana(p))+"</b>";c.insertAdjacentElement("afterend",k);}});
+  if(promoOn){document.body.classList.add("promo-on");var pr=$("#promo");if(pr)pr.hidden=false;
+    $$("[data-promo]").forEach(function(el){var v=PROMO_ACTIVA[el.getAttribute("data-promo")];if(v!==undefined)el.textContent=v});
+    if(!CUPON)document.body.classList.add("promo-auto");
+    $$('a[href*="/cart/"]').forEach(function(a){if(CUPON&&a.href.indexOf("discount=")<0)a.href+=(a.href.indexOf("?")<0?"?":"&")+"discount="+CUPON});
+    var nums=$$("#promo-t b");
+    (function tic(){var d=fin-Date.now();if(d<=0){if(pr)pr.hidden=true;document.body.classList.remove("promo-on");return}
+      var v=[Math.floor(d/864e5),Math.floor(d%864e5/36e5),Math.floor(d%36e5/6e4),Math.floor(d%6e4/1e3)];
+      v.forEach(function(x,i){if(nums[i])nums[i].textContent=String(x).padStart(2,"0")});setTimeout(tic,1000)})();}
+
+  /* Tienda propia: cada botón abre WhatsApp con el pedido y el precio vigente */
+  function waMsg(items){var t=0,l=items.map(function(x){var p=promoOn?semana(x.p):x.p;t+=p;return "- "+x.n+" ("+fmt(p)+")"}).join("\n");
+    var txt="Hola Nicolás, quiero comprar:\n"+l+(items.length>1?"\nTotal: "+fmt(t):"")+(promoOn?"\n(precio de la semana, "+CUPON_PCT+"% OFF)":"")+"\n¿Me pasás el link de pago?";
+    return "https://wa.me/5493425104877?text="+encodeURIComponent(txt)}
+  if(MODO_WSP){$$("[data-vid]").forEach(function(a){var v=VIDS[a.dataset.vid];if(v){a.href=waMsg([{n:v[0],p:v[1]}]);a.target="_blank";a.rel="noopener"}});
+    $("#cart-go").target="_blank";}
+
+  /* Reseñas reales */
+  var rl=$("#resenas-lista");
+  if(rl&&RESENAS.length){rl.innerHTML+=RESENAS.map(function(r){return '<article class="resena"><div class="estrellas">★★★★★</div><p>“'+r.texto+'”</p><small><b>'+r.nombre+'</b> · '+[r.oficio,r.ciudad].filter(Boolean).join(" · ")+(r.producto?'<br>Compró: '+r.producto:'')+'</small>'+(r.foto?'<img src="'+r.foto+'" alt="Captura de la reseña de '+r.nombre+'" loading="lazy">':'')+'</article>'}).join("");}
+
+  /* Carrito: sumar varios productos y pagar todo junto */
+  var sel=[],bar=$("#carrito"),barra=$("#barra");
+  function pintar(){
+    var tot=sel.reduce(function(a,x){return a+x.p},0);
+    $("#cart-n").textContent=sel.length+(sel.length===1?" producto":" productos");$("#cart-t").textContent=fmt(tot);
+    $("#cart-go").href=MODO_WSP?waMsg(sel):CART+"/"+sel.map(function(x){return x.id+":1"}).join(",")+(promoOn&&CUPON?"?discount="+CUPON:"");
+    $("#cart-c").textContent=promoOn&&tot?(CUPON?"con cupón: ":"con descuento: ")+fmt(Math.round(tot*(100-CUPON_PCT)/100))+" · o 3 cuotas":(tot?"o 3 cuotas de "+fmt(Math.ceil(tot/3)):"");
+    bar.classList.toggle("on",sel.length>0);actualizarBarras();
+    $$("[data-add]").forEach(function(b){var on=sel.some(function(x){return x.id===b.dataset.id});
+      if(on&&!b.classList.contains("is-added")){b.classList.remove("flash");void b.offsetWidth;b.classList.add("flash");}
+      if(!b.dataset.txt)b.dataset.txt=b.textContent;b.classList.toggle("is-added",on);b.textContent=on?"✓ Agregado · quitar":b.dataset.txt;});
+  }
+  document.addEventListener("click",function(e){var b=e.target.closest("[data-add]");if(!b)return;e.preventDefault();
+    var i=sel.findIndex(function(x){return x.id===b.dataset.id});
+    if(i>-1)sel.splice(i,1);else{sel.push({id:b.dataset.id,p:+b.dataset.price,n:b.dataset.name||(VIDS[b.dataset.id]||[])[0]});if(window.fbq)fbq("track","AddToCart",{value:+b.dataset.price,currency:"ARS",content_name:b.dataset.name});}
+    pintar();});
+  $("#cart-x").addEventListener("click",function(){sel=[];pintar()});
+  $("#cart-go").addEventListener("click",function(){if(window.fbq){var tot=sel.reduce(function(a,x){return a+x.p},0);fbq("track","InitiateCheckout",{value:tot,currency:"ARS",num_items:sel.length})}});
+  /* Compra directa (botones "comprar ya"): avisa a Meta del inicio de pago */
+  $$("[data-buy]").forEach(function(a){a.addEventListener("click",function(){if(window.fbq)fbq("track","InitiateCheckout",{value:+a.dataset.price,currency:"ARS",num_items:1,content_name:a.dataset.name})})});
+
+  /* Upsell: sumar la biblioteca a la suite (las casillas se sincronizan) */
+  var chks=$$(".bump-chk");
+  function suiteLinks(){var on=chks.length&&chks[0].checked,bid=chks.length?chks[0].dataset.id:"";
+    var ids=["50308363387237"].concat(on?[bid]:[]);
+    $$(".js-suite").forEach(function(a){a.href=MODO_WSP?waMsg(ids.map(function(i){return {n:(VIDS[i]||[])[0],p:(VIDS[i]||[])[1]}})):CART+"/"+ids.map(function(i){return i+":1"}).join(",")+(promoOn&&CUPON?"?discount="+CUPON:"");
+      a.dataset.price=239242+(on?+chks[0].dataset.price:0);});}
+  chks.forEach(function(c){c.addEventListener("change",function(){chks.forEach(function(o){o.checked=c.checked});suiteLinks();
+    if(c.checked&&window.fbq)fbq("track","AddToCart",{value:+c.dataset.price,currency:"ARS",content_name:"Biblioteca (upsell)"});})});
+  if(chks.length)suiteLinks();
+
+  /* Barra fija del producto principal: aparece al pasar el hero y se esconde en la caja de precio */
+  var pasoHero=false, enPrecio=false;
+  function actualizarBarras(){var cartOn=sel.length>0;if(barra)barra.classList.toggle("on",!cartOn&&pasoHero&&!enPrecio);document.body.classList.toggle("con-barra",cartOn||(barra&&barra.classList.contains("on")));}
+  if(barra&&"IntersectionObserver" in window){
+    var h=$(".plano");if(h)new IntersectionObserver(function(e){pasoHero=!e[0].isIntersecting&&e[0].boundingClientRect.top<0;actualizarBarras()}).observe(h);
+    $$("[data-oculta-barra]").forEach(function(n){new IntersectionObserver(function(e){enPrecio=e.some(function(x){return x.isIntersecting});actualizarBarras()},{threshold:.25}).observe(n)});
+  }
+
+  /* Aparición suave */
+  if("IntersectionObserver" in window&&!reduce){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{threshold:.08});
+    $$(".pr,.comp2 article,.benef div,.prueba div").forEach(function(n){n.classList.add("reveal");io.observe(n)});}
+})();
+</script>
+</body>
+</html>
