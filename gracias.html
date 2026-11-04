@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>¡Gracias por tu compra! · Proyecta +</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="https://www.proyectamas.com.ar/assets/icon/favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#122e54;--blue:#1e4982;--yellow:#ffe500;--paper:#f6f3ec;--muted:#5b6475}
+*{box-sizing:border-box;margin:0}body{background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--ink);color:#fff;padding:18px 16px}header .w{max-width:760px;margin:auto}
+.logo{font-family:"Bangers",cursive;letter-spacing:.04em;font-size:34px;line-height:1;text-decoration:none;color:#fff}.logo span{color:var(--yellow)}
+main{flex:1;max-width:760px;width:100%;margin:auto;padding:44px 16px 60px}
+.caja{background:#fff;border-radius:28px;padding:36px 28px;box-shadow:0 10px 40px rgba(18,46,84,.08);text-align:center}
+.ico{font-size:54px;line-height:1}h1{font-size:clamp(28px,5vw,42px);line-height:1.08;letter-spacing:-.02em;margin:14px 0 10px}
+.sub{color:var(--muted);font-size:18px;max-width:520px;margin:0 auto}
+.pasos{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:28px 0 6px;text-align:left}
+.pasos div{background:var(--paper);border-radius:18px;padding:16px}.pasos b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;font-weight:800;padding:13px 22px;border-radius:999px;text-decoration:none;border:2px solid var(--ink)}
+.btn--y{background:var(--yellow);border-color:var(--yellow)}.btn--l{background:#fff}
+[hidden]{display:none!important}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
+</style>
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1619971716531777');fbq('track','PageView');</script>
+</head><body>
+<header><div class="w"><a class="logo" href="/">PROYECTA <span>+</span></a></div></header>
+<main>
+  <section class="caja" id="ok">
+    <div class="ico">📩</div>
+    <h1>¡Listo! Tus archivos van camino a tu mail</h1>
+    <p class="sub">El pago se acreditó. En unos minutos te llega un mail de Proyecta + con los links de descarga.</p>
+    <div class="pasos">
+      <div><b>1 · Revisá tu mail</b>Buscá "Tus archivos de Proyecta +". Si no aparece, mirá en Spam o Promociones.</div>
+      <div><b>2 · Descargá todo</b>Guardá los archivos en tu compu o en tu Drive para tenerlos siempre.</div>
+      <div><b>3 · ¿Dudas?</b>Respondé el mail o escribime por WhatsApp. Te ayudo con lo que necesites.</div>
+    </div>
+    <div class="btns"><a class="btn btn--y" href="https://wa.me/5493425104877?text=Hola%20Nico%2C%20acabo%20de%20comprar%20y%20tengo%20una%20consulta" target="_blank" rel="noopener">💬 Escribirme por WhatsApp</a><a class="btn btn--l" href="/">Volver a la tienda</a></div>
+  </section>
+  <section class="caja" id="pend" hidden>
+    <div class="ico">⏳</div>
+    <h1>Tu pago está en proceso</h1>
+    <p class="sub">Mercado Pago todavía lo está acreditando (pasa con efectivo o algunas tarjetas). Apenas se apruebe, te llegan los archivos solos al mail. No tenés que hacer nada más.</p>
+    <div class="btns"><a class="btn btn--y" href="https://wa.me/5493425104877?text=Hola%20Nico%2C%20mi%20pago%20qued%C3%B3%20pendiente" target="_blank" rel="noopener">💬 Consultarme por WhatsApp</a><a class="btn btn--l" href="/">Volver a la tienda</a></div>
+  </section>
+  <section class="caja" id="err" hidden>
+    <div class="ico">😕</div>
+    <h1>El pago no se pudo completar</h1>
+    <p class="sub">No se hizo ningún cobro. Podés intentarlo de nuevo con otro medio de pago o comprarme directo por WhatsApp.</p>
+    <div class="btns"><a class="btn btn--y" href="javascript:history.go(-2)">Intentar de nuevo</a><a class="btn btn--l" href="https://wa.me/5493425104877?text=Hola%20Nico%2C%20no%20pude%20pagar%20en%20la%20web" target="_blank" rel="noopener">💬 Comprar por WhatsApp</a></div>
+  </section>
+</main>
+<footer>Proyecta + · Rosario, Santa Fe</footer>
+<script>
+(function(){var q=new URLSearchParams(location.search),st=q.get("estado")||q.get("collection_status")||q.get("status")||"approved";
+  var vista=st==="approved"?"ok":(st==="pendiente"||st==="pending"||st==="in_process")?"pend":"err";
+  ["ok","pend","err"].forEach(function(id){document.getElementById(id).hidden=id!==vista});
+  var pid=q.get("payment_id")||q.get("collection_id");
+  if(vista==="ok"&&window.fbq&&pid){var k="pm_px_"+pid,ya=false;try{ya=!!localStorage.getItem(k);localStorage.setItem(k,"1")}catch(e){}
+    if(!ya)fbq("track","Purchase",{value:+q.get("v")||0,currency:"ARS"},{eventID:"pago-"+pid});}
+})();
+</script>
+</body></html>
