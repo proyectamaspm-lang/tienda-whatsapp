@@ -10,6 +10,9 @@
   var fmt = function (n) { return "$" + Math.round(n).toLocaleString("es-AR"); };
   var SUITE = "50308363387237";
 
+  /* Desde la web principal: #planillas-sueltas abre la lista de planillas sueltas */
+  if (location.hash === "#planillas-sueltas") { var ds = document.getElementById("planillas-sueltas"); if (ds) ds.open = true; }
+
   fetch("/api/estado").then(function (r) { return r.json(); }).then(function (e) { if (e && e.activo) iniciar(); }).catch(function () {});
 
   function iniciar() {
@@ -30,6 +33,14 @@
       e.preventDefault();
       abrir(ids, a.href);
     }, true);
+
+    /* Link directo desde la web principal: ?comprar=CÓDIGO (o varios separados por coma) abre el pago */
+    var q = new URLSearchParams(location.search).get("comprar");
+    if (q) {
+      var lista = q.split(",").filter(function (id) { return VID[id]; });
+      if (lista.length) abrir(lista, "");
+      try { history.replaceState(null, "", location.pathname + location.hash); } catch (e) {}
+    }
   }
 
   var css = '#pm-pago{position:fixed;inset:0;z-index:9999;background:rgba(18,46,84,.55);display:flex;align-items:center;justify-content:center;padding:16px}' +
