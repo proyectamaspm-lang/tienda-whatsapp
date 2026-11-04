@@ -14,35 +14,46 @@ module.exports = async (req, res) => {
     if (!EMAIL_OK.test(email)) return res.status(400).json({ error: "Revisá el email" });
 
     const { items, total, promo } = await armarPedido(body.items);
-    const ref = "PM-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 6).toUpperCase();
+    const codigo = "PM-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 6).toUpperCase();
+    // La referencia lleva también el email (respaldo para la entrega), si entra en los 64 caracteres
+    const ref = (codigo + "|" + email).length <= 64 ? codigo + "|" + email : codigo;
+    const plata = (n) => n.toFixed(2);
 
-    const pref = await mp("/checkout/preferences", {
+    // Checkout Pro con la API de Orders (la de Preferences se va a dar de baja)
+    const order = await mp("/v1/orders", {
       method: "POST",
+      headers: { "X-Idempotency-Key": codigo },
       body: JSON.stringify({
+        type: "online",
+        processing_mode: "manual",
+        total_amount: plata(total),
+        external_reference: ref,
+        description: items.length === 1 ? items[0].nombre : "Pedido Proyecta + (" + items.length + " productos)",
+        expiration_time: "P1D",
+        payer: { email, first_name: nombre || undefined },
         items: items.map((x) => ({
-          id: x.id,
+          external_code: x.id,
           title: x.nombre + (promo ? " (" + promo.porcentaje + "% OFF)" : ""),
           quantity: 1,
-          unit_price: x.precio,
-          currency_id: "ARS",
+          unit_price: plata(x.precio),
           category_id: "learnings",
         })),
-        payer: { email, name: nombre || undefined },
-        external_reference: ref,
-        metadata: { pedido: ref, items: items.map((x) => x.id).join(","), email, nombre },
-        notification_url: SITE + "/api/webhook-mp",
-        back_urls: {
-          success: SITE + "/gracias?v=" + total,
-          pending: SITE + "/gracias?estado=pendiente",
-          failure: SITE + "/gracias?estado=error",
+        config: {
+          statement_descriptor: "PROYECTAMAS",
+          payment_method: { max_installments: 3 },
+          online: {
+            success_url: SITE + "/gracias?v=" + total,
+            pending_url: SITE + "/gracias?estado=pendiente",
+            failure_url: SITE + "/gracias?estado=error",
+            auto_return: "approved",
+          },
         },
-        auto_return: "approved",
-        payment_methods: { installments: 3 },
-        statement_descriptor: "PROYECTAMAS",
       }),
     });
 
-    res.status(200).json({ url: pref.init_point, pedido: ref, total });
+    const url = order.checkout_url || (order.checkout_pro && order.checkout_pro.init_point) || order.init_point;
+    if (!url) throw new Error("Mercado Pago no devolvió el link de pago: " + JSON.stringify(order).slice(0, 200));
+    res.status(200).json({ url, pedido: codigo, total });
   } catch (e) {
     console.error("checkout:", e.message);
     res.status(500).json({ error: "No se pudo iniciar el pago" });

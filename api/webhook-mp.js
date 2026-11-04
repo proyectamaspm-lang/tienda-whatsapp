@@ -1,14 +1,14 @@
-// Mercado Pago avisa acá cada vez que cambia un pago.
+// Mercado Pago avisa acá cada vez que cambia una order (API de Orders, evento "Order").
 // Confirmamos el pago directamente con Mercado Pago (así nadie puede falsear el aviso)
 // y, si está aprobado, mandamos los links de descarga al cliente y un aviso a Nico.
 const { CATALOGO, mp, enviarEmail, linksDe, fmt, esc } = require("./_lib");
 
-function idDelPago(req) {
+function idDeLaOrder(req) {
   const q = req.query || {};
   const b = typeof req.body === "string" ? safeJSON(req.body) : req.body || {};
   const tipo = b.type || b.topic || q.type || q.topic;
-  if (tipo && tipo !== "payment") return null;
-  return (b.data && b.data.id) || q["data.id"] || (tipo === "payment" ? q.id : null) || null;
+  if (tipo && tipo !== "order") return null;
+  return (b.data && b.data.id) || q["data.id"] || null;
 }
 const safeJSON = (s) => { try { return JSON.parse(s); } catch (e) { return {}; } };
 
@@ -41,33 +41,42 @@ function emailCliente({ nombre, productos, pedido }) {
 function emailAviso({ pago, nombre, email, productos, faltan }) {
   const filas = productos.map((p) => "<li>" + esc(p.nombre) + (p.links.length ? "" : " <b style=\"color:#c0392b\">(sin link: mandalo a mano)</b>") + "</li>").join("");
   return '<div style="font-family:Arial,sans-serif;line-height:1.5">' +
-    "<h2 style=\"margin:0 0 6px\">Nueva venta: " + fmt(pago.transaction_amount) + "</h2>" +
+    "<h2 style=\"margin:0 0 6px\">Nueva venta: " + fmt(pago.monto) + "</h2>" +
     "<p>" + esc(nombre || "(sin nombre)") + " · <a href=\"mailto:" + esc(email) + "\">" + esc(email) + "</a></p>" +
     "<ul>" + filas + "</ul>" +
     (faltan ? '<p style="color:#c0392b"><b>Ojo:</b> hay productos sin link cargado en ENTREGAS. Al cliente le dijimos que se los mandás en unas horas.</p>' : "<p>Los archivos ya se mandaron solos.</p>") +
-    '<p style="color:#777;font-size:13px">Pago MP ' + esc(pago.id) + " · pedido " + esc(pago.external_reference) + " · " + esc(pago.payment_type_id) + (pago.installments > 1 ? " en " + pago.installments + " cuotas" : "") + "</p></div>";
+    '<p style="color:#777;font-size:13px">Order MP ' + esc(pago.id) + " · pedido " + esc(pago.ref) + " · " + esc(pago.medio) + (pago.cuotas > 1 ? " en " + pago.cuotas + " cuotas" : "") + "</p></div>";
 }
 
 module.exports = async (req, res) => {
-  const id = idDelPago(req);
+  const id = idDeLaOrder(req);
   if (!id) return res.status(200).json({ ok: true, ignorado: true });
 
   try {
-    const pago = await mp("/v1/payments/" + encodeURIComponent(id));
-    if (pago.status !== "approved") return res.status(200).json({ ok: true, estado: pago.status });
+    const order = await mp("/v1/orders/" + encodeURIComponent(id));
+    // "processed" = cobrada y acreditada
+    if (order.status !== "processed") return res.status(200).json({ ok: true, estado: order.status });
 
-    const md = pago.metadata || {};
-    const email = md.email || (pago.payer && pago.payer.email);
-    const nombre = md.nombre || "";
-    const ids = String(md.items || "").split(",").filter(Boolean);
+    const [codigo, emailRef] = String(order.external_reference || "").split("|");
+    const email = (order.payer && order.payer.email) || emailRef;
+    const nombre = (order.payer && order.payer.first_name) || "";
+    const ids = (order.items || []).map((x) => x.external_code).filter(Boolean);
     if (!email || !ids.length) {
-      console.error("Pago aprobado sin datos del pedido", id);
+      console.error("Order cobrada sin datos del pedido", id, JSON.stringify(order).slice(0, 300));
       return res.status(200).json({ ok: true, sinDatos: true });
     }
+    const pagoMP = ((order.transactions && order.transactions.payments) || [])[0] || {};
+    const pago = {
+      id: order.id,
+      monto: +(order.total_paid_amount || order.total_amount || 0),
+      ref: codigo || order.id,
+      medio: (pagoMP.payment_method && pagoMP.payment_method.type) || "",
+      cuotas: (pagoMP.payment_method && pagoMP.payment_method.installments) || 1,
+    };
 
     const productos = ids.map((pid) => ({ id: pid, nombre: (CATALOGO[pid] || {}).nombre || pid, links: linksDe(pid) }));
     const faltan = productos.some((p) => !p.links.length);
-    const pedido = pago.external_reference || md.pedido || String(id);
+    const pedido = pago.ref;
 
     // La clave evita mandar dos veces el mismo mail si Mercado Pago repite el aviso
     await enviarEmail({
@@ -78,7 +87,7 @@ module.exports = async (req, res) => {
     });
     await enviarEmail({
       to: process.env.MAIL_AVISO || "hola@proyectamas.com.ar",
-      subject: (faltan ? "⚠️ " : "") + "Venta " + fmt(pago.transaction_amount) + ": " + productos.map((p) => p.nombre).join(" + "),
+      subject: (faltan ? "⚠️ " : "") + "Venta " + fmt(pago.monto) + ": " + productos.map((p) => p.nombre).join(" + "),
       html: emailAviso({ pago, nombre, email, productos, faltan }),
       replyTo: email,
       clave: "aviso-" + id,

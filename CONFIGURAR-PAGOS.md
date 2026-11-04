@@ -5,7 +5,7 @@ Cuando cargás las 3 variables obligatorias en Vercel, se activa solo.
 
 ## Cómo funciona
 1. El cliente toca **Comprar ya** (o el carrito), deja nombre y email y paga en Mercado Pago.
-2. Mercado Pago avisa a `/api/webhook-mp`, la web confirma el pago con Mercado Pago.
+2. Mercado Pago avisa a `/api/webhook-mp` (evento **Order**), la web confirma el cobro con Mercado Pago.
 3. Se manda solo el mail con los links de Drive al cliente, y un aviso de la venta a hola@.
 4. El cliente vuelve a `/gracias`.
 
@@ -19,6 +19,13 @@ Cuando cargás las 3 variables obligatorias en Vercel, se activa solo.
 | `MAIL_AVISO` (opcional) | A dónde llega el aviso de cada venta. Por defecto `hola@proyectamas.com.ar` |
 
 Después de guardar las variables: **Deployments → ⋯ → Redeploy**.
+
+## Aviso de pagos en Mercado Pago (obligatorio)
+Se usa Checkout Pro con la **API de Orders**. En Mercado Pago Developers → tu aplicación →
+**Webhooks → Configurar notificaciones** → pestaña **Modo productivo**:
+- URL: `https://tienda.proyectamas.com.ar/api/webhook-mp`
+- Evento: **Order (Mercado Pago)**
+- Guardar.
 
 Los nombres de producto válidos para `ENTREGAS` están en `api/_catalogo.js`.
 Si un producto no tiene link cargado, igual se cobra: al cliente le llega "te lo mando en unas horas" y a vos un aviso para mandarlo a mano.
