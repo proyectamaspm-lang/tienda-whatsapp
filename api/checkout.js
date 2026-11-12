@@ -44,7 +44,7 @@ module.exports = async (req, res) => {
           statement_descriptor: "PROYECTAMAS",
           payment_method: { max_installments: 3 },
           online: {
-            success_url: SITE + "/gracias?v=" + total,
+            success_url: SITE + "/gracias?v=" + total + "&p=" + codigo,
             pending_url: SITE + "/gracias?estado=pendiente",
             failure_url: SITE + "/gracias?estado=error",
             auto_return: "approved",

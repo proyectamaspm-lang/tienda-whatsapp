@@ -1,7 +1,7 @@
 // Mercado Pago avisa acá cada vez que cambia una order (API de Orders, evento "Order").
 // Confirmamos el pago directamente con Mercado Pago (así nadie puede falsear el aviso)
 // y, si está aprobado, mandamos los links de descarga al cliente y un aviso a Nico.
-const { CATALOGO, mp, enviarEmail, linksDe, fmt, esc } = require("./_lib");
+const { CATALOGO, mp, enviarEmail, avisarCompraMeta, linksDe, fmt, esc } = require("./_lib");
 
 function idDeLaOrder(req) {
   const q = req.query || {};
@@ -97,6 +97,13 @@ module.exports = async (req, res) => {
       replyTo: email,
       clave: "aviso-" + id,
     });
+
+    // Compra a Meta desde el servidor: los archivos ya salieron, así que un error acá solo se anota
+    try {
+      await avisarCompraMeta({ pedido, email, nombre, monto: pago.monto, ids, fecha: order.last_updated_date || order.created_date });
+    } catch (e) {
+      console.error("meta:", e.message);
+    }
 
     res.status(200).json({ ok: true, enviado: true });
   } catch (e) {

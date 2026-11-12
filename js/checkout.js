@@ -38,7 +38,10 @@
     var q = new URLSearchParams(location.search).get("comprar");
     if (q) {
       var lista = q.split(",").filter(function (id) { return VID[id]; });
-      if (lista.length) abrir(lista, "");
+      if (lista.length) {
+        abrir(lista, "");
+        if (window.fbq) fbq("track", "InitiateCheckout", { value: lista.reduce(function (a, id) { return a + precio(VID[id][1]); }, 0), currency: "ARS", num_items: lista.length });
+      }
       try { history.replaceState(null, "", location.pathname + location.hash); } catch (e) {}
     }
   }
@@ -98,6 +101,7 @@
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { error("Revisá el email, así te llegan los archivos."); $("#pm-e").focus(); return; }
     try { localStorage.setItem("pm_email", email); localStorage.setItem("pm_nombre", nombre); } catch (er) {}
     btn.disabled = true; btn.textContent = "Abriendo Mercado Pago…"; $("#pm-err").hidden = true;
+    if (window.fbq) fbq("track", "AddPaymentInfo", { value: ids.reduce(function (a, id) { return a + precio(VID[id][1]); }, 0), currency: "ARS", num_items: ids.length });
     fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items: ids, email: email, nombre: nombre }) })
       .then(function (r) { return r.json().then(function (d) { if (!r.ok || !d.url) throw new Error(d.error || "error"); return d; }); })
       .then(function (d) { location.href = d.url; })

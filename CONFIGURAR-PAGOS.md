@@ -33,3 +33,12 @@ Si un producto no tiene link cargado, igual se cobra: al cliente le llega "te lo
 ## Precios
 El servidor cobra los precios de `api/_catalogo.js` y aplica la promo vigente de `promos.js`.
 Si cambiás un precio en las páginas, cambialo también en `api/_catalogo.js`.
+
+## Compras en Meta desde el servidor (opcional, recomendado)
+Además del Pixel de la página de gracias, la tienda le avisa la compra a Meta desde el servidor
+cuando Mercado Pago confirma el pago. Así la compra se cuenta aunque el cliente no vuelva a la web.
+
+1. Meta → Administrador de eventos → tu Pixel → Configuración → API de conversiones → **Generar token de acceso**.
+2. En Vercel → Settings → Environment Variables: `META_CAPI_TOKEN` con ese token (Production). Redeploy.
+
+Los dos avisos llevan el mismo id (`compra-` + código del pedido): Meta cuenta la compra una sola vez.

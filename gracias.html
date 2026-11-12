@@ -56,9 +56,10 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 (function(){var q=new URLSearchParams(location.search),st=q.get("estado")||q.get("collection_status")||q.get("status")||"approved";
   var vista=st==="approved"?"ok":(st==="pendiente"||st==="pending"||st==="in_process")?"pend":"err";
   ["ok","pend","err"].forEach(function(id){document.getElementById(id).hidden=id!==vista});
-  var pid=q.get("payment_id")||q.get("collection_id")||q.get("order_id")||q.get("external_reference");
+  /* El id del evento es el mismo que manda el servidor (api/webhook-mp.js): Meta cuenta la compra una sola vez */
+  var pid=q.get("p")||(q.get("external_reference")||"").split("_")[0]||q.get("order_id")||q.get("payment_id")||q.get("collection_id");
   if(vista==="ok"&&window.fbq&&pid){var k="pm_px_"+pid,ya=false;try{ya=!!localStorage.getItem(k);localStorage.setItem(k,"1")}catch(e){}
-    if(!ya)fbq("track","Purchase",{value:+q.get("v")||0,currency:"ARS"},{eventID:"pago-"+pid});}
+    if(!ya)fbq("track","Purchase",{value:+q.get("v")||0,currency:"ARS"},{eventID:"compra-"+pid});}
 })();
 </script>
 </body></html>

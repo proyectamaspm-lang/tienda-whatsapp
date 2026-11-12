@@ -101,7 +101,41 @@ async function enviarEmail({ to, subject, html, replyTo, clave }) {
   return data;
 }
 
+// ---------- Meta: compra avisada desde el servidor (API de conversiones) ----------
+// Se activa sola cuando está la variable META_CAPI_TOKEN en Vercel. Si falta, no hace nada.
+// Lleva el mismo id de evento que la página de gracias, así Meta no la cuenta dos veces.
+const crypto = require("crypto");
+const sha = (t) => crypto.createHash("sha256").update(String(t).trim().toLowerCase()).digest("hex");
+async function avisarCompraMeta({ pedido, email, nombre, monto, ids, fecha }) {
+  const token = process.env.META_CAPI_TOKEN;
+  if (!token) return { omitido: true };
+  const pixel = process.env.META_PIXEL_ID || "1619971716531777";
+  const user_data = { em: [sha(email)] };
+  const partes = String(nombre || "").trim().split(/\s+/).filter(Boolean);
+  if (partes[0]) user_data.fn = [sha(partes[0])];
+  if (partes.length > 1) user_data.ln = [sha(partes[partes.length - 1])];
+  user_data.country = [sha("ar")];
+  const r = await fetch("https://graph.facebook.com/v21.0/" + pixel + "/events?access_token=" + encodeURIComponent(token), {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      data: [{
+        event_name: "Purchase",
+        event_time: Math.floor((fecha ? new Date(fecha).getTime() : Date.now()) / 1000) || Math.floor(Date.now() / 1000),
+        event_id: "compra-" + pedido,
+        action_source: "website",
+        event_source_url: SITE + "/gracias",
+        user_data,
+        custom_data: { currency: "ARS", value: Math.round(monto * 100) / 100, content_type: "product", content_ids: ids, num_items: ids.length, order_id: pedido },
+      }],
+    }),
+  });
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error("Meta " + r.status + ": " + JSON.stringify(data).slice(0, 300));
+  return data;
+}
+
 const fmt = (n) => "$" + Math.round(n).toLocaleString("es-AR");
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
-module.exports = { SITE, CATALOGO, activo, armarPedido, linksDe, mp, enviarEmail, fmt, esc, normalizar };
+module.exports = { SITE, CATALOGO, activo, armarPedido, linksDe, mp, enviarEmail, avisarCompraMeta, fmt, esc, normalizar };
