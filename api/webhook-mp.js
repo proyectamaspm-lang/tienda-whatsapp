@@ -57,7 +57,12 @@ module.exports = async (req, res) => {
     // "processed" = cobrada y acreditada
     if (order.status !== "processed") return res.status(200).json({ ok: true, estado: order.status });
 
-    const [codigo, emailRef] = String(order.external_reference || "").split("|");
+    // Referencia = código del pedido + "_" + email codificado (ver api/checkout.js)
+    const refTxt = String(order.external_reference || "");
+    const corte = refTxt.indexOf("_");
+    const codigo = corte < 0 ? refTxt : refTxt.slice(0, corte);
+    let emailRef = "";
+    if (corte >= 0) { try { emailRef = Buffer.from(refTxt.slice(corte + 1), "base64url").toString("utf8"); } catch (e) {} }
     const email = (order.payer && order.payer.email) || emailRef;
     const nombre = (order.payer && order.payer.first_name) || "";
     const ids = (order.items || []).map((x) => x.external_code).filter(Boolean);

@@ -15,8 +15,10 @@ module.exports = async (req, res) => {
 
     const { items, total, promo } = await armarPedido(body.items);
     const codigo = "PM-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 6).toUpperCase();
-    // La referencia lleva también el email (respaldo para la entrega), si entra en los 64 caracteres
-    const ref = (codigo + "|" + email).length <= 64 ? codigo + "|" + email : codigo;
+    // La referencia lleva también el email (respaldo para la entrega), si entra en los 64 caracteres.
+    // Mercado Pago solo acepta letras, números, guiones y guion bajo en ese campo: el email va codificado.
+    const emailRef = Buffer.from(email).toString("base64url");
+    const ref = (codigo + "_" + emailRef).length <= 64 ? codigo + "_" + emailRef : codigo;
     const plata = (n) => n.toFixed(2);
 
     // Checkout Pro con la API de Orders (la de Preferences se va a dar de baja)
