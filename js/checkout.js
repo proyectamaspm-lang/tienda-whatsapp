@@ -6,7 +6,9 @@
   var VID = window.VIDS || {};
   var P = window.PROMO, fin = P ? new Date(P.hasta).getTime() : 0;
   var promoOn = !!P && !isNaN(fin) && Date.now() < fin;
-  var precio = function (p) { return promoOn ? Math.round(p * (100 - P.porcentaje) / 100) : p; };
+  var CUP = null; /* {codigo, porcentaje} validado por el servidor */
+  var pct = function () { var a = promoOn ? +P.porcentaje : 0, b = CUP ? +CUP.porcentaje : 0; return Math.max(a, b); };
+  var precio = function (p) { var d = pct(); return d ? Math.round(p * (100 - d) / 100) : p; };
   var fmt = function (n) { return "$" + Math.round(n).toLocaleString("es-AR"); };
   var SUITE = "50308363387237";
 
@@ -15,7 +17,20 @@
 
   fetch("/api/estado").then(function (r) { return r.json(); }).then(function (e) { if (e && e.activo) iniciar(); }).catch(function () {});
 
+  function probarCupon(cod, cb) {
+    cod = String(cod || "").trim().toUpperCase(); if (!cod) { cb && cb(false); return; }
+    fetch("/api/cupon?c=" + encodeURIComponent(cod)).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+      if (d && d.ok) { CUP = { codigo: d.codigo, porcentaje: d.porcentaje }; try { localStorage.setItem("pm_cupon", d.codigo); } catch (e) {} cb && cb(true); }
+      else cb && cb(false);
+    }).catch(function () { cb && cb(false); });
+  }
+
   function iniciar() {
+    /* Código que viene desde la Red (?cupon=) o guardado de una visita anterior */
+    var qc = new URLSearchParams(location.search).get("cupon"), guardado = "";
+    try { guardado = localStorage.getItem("pm_cupon") || ""; } catch (e) {}
+    if (qc || guardado) probarCupon(qc || guardado, function (ok) { if (!ok) try { localStorage.removeItem("pm_cupon"); } catch (e) {} });
+    if (qc) try { var u = new URLSearchParams(location.search); u.delete("cupon"); history.replaceState(null, "", location.pathname + (u.toString() ? "?" + u : "") + location.hash); } catch (e) {}
     document.body.classList.add("pago-auto");
     var go = $("#cart-go"); if (go) { go.textContent = "Ir a pagar ❯"; go.removeAttribute("target"); }
     document.querySelectorAll("[data-auto]").forEach(function (el) { el.innerHTML = el.getAttribute("data-auto"); });
@@ -71,6 +86,7 @@
       '<form id="pm-form" novalidate><label for="pm-n">Tu nombre</label><input id="pm-n" autocomplete="name" placeholder="Nombre y apellido">' +
       '<label for="pm-e">Tu email</label><input id="pm-e" type="email" autocomplete="email" inputmode="email" placeholder="tunombre@gmail.com" required>' +
       '<div class="ayuda">Acá te mandamos los links de descarga. Revisalo bien.</div>' +
+      '<label for="pm-c">Código de descuento <span style="font-weight:400">(opcional)</span></label><div style="display:flex;gap:8px"><input id="pm-c" autocomplete="off" placeholder="Si tenés uno" style="text-transform:uppercase"><button type="button" id="pm-ca" style="font:inherit;font-weight:800;padding:0 16px;border-radius:14px;border:2px solid #1e4982;background:#fff;color:#1e4982;cursor:pointer">Aplicar</button></div><div class="ayuda" id="pm-cm"></div>' +
       '<div class="err" id="pm-err" hidden></div><button class="pagar" type="submit">Pagar con Mercado Pago ❯</button></form>' +
       '<div class="seg"><span>🔒 Pago seguro en Mercado Pago</span><span>·</span><span>💳 Hasta 3 cuotas</span><span>·</span><span>🛡️ Garantía 7 días</span></div>' +
       '<a class="ws" id="pm-ws" target="_blank" rel="noopener">¿Preferís comprar por WhatsApp?</a></div>';
@@ -78,6 +94,10 @@
     caja.addEventListener("click", function (e) { if (e.target === caja || e.target.classList.contains("x")) cerrar(); });
     addEventListener("keydown", function (e) { if (e.key === "Escape" && !caja.hidden) cerrar(); });
     $("#pm-form").addEventListener("submit", pagar);
+    $("#pm-ca").addEventListener("click", function () {
+      var v = $("#pm-c").value; $("#pm-cm").textContent = "Revisando…";
+      probarCupon(v, function (ok) { $("#pm-cm").textContent = ok ? "Código aplicado: " + CUP.porcentaje + "% OFF" : "Ese código no es válido."; if (ok) abrir(ids, wsp); });
+    });
     try { $("#pm-e").value = localStorage.getItem("pm_email") || ""; $("#pm-n").value = localStorage.getItem("pm_nombre") || ""; } catch (e) {}
   }
 
@@ -86,7 +106,8 @@
     var tot = 0;
     $("#pm-items").innerHTML = lista.map(function (id) { var v = VID[id], p = precio(v[1]); tot += p; return "<li><span>" + v[0] + "</span><b>" + fmt(p) + "</b></li>"; }).join("");
     $("#pm-tot").textContent = fmt(tot);
-    $("#pm-cuo").textContent = "o 3 cuotas sin interés de " + fmt(Math.ceil(tot / 3)) + (promoOn ? " · con " + P.porcentaje + "% OFF aplicado" : "");
+    $("#pm-cuo").textContent = "o 3 cuotas sin interés de " + fmt(Math.ceil(tot / 3)) + (pct() ? " · con " + pct() + "% OFF aplicado" : "");
+    if (CUP) { $("#pm-c").value = CUP.codigo; $("#pm-cm").textContent = "Código aplicado: " + CUP.porcentaje + "% OFF"; }
     $("#pm-ws").href = wsp; $("#pm-err").hidden = true;
     caja.hidden = false; document.body.style.overflow = "hidden";
     setTimeout(function () { ($("#pm-e").value ? $(".pagar", caja) : $("#pm-n").value ? $("#pm-e") : $("#pm-n")).focus(); }, 50);
@@ -102,7 +123,7 @@
     try { localStorage.setItem("pm_email", email); localStorage.setItem("pm_nombre", nombre); } catch (er) {}
     btn.disabled = true; btn.textContent = "Abriendo Mercado Pago…"; $("#pm-err").hidden = true;
     if (window.fbq) fbq("track", "AddPaymentInfo", { value: ids.reduce(function (a, id) { return a + precio(VID[id][1]); }, 0), currency: "ARS", num_items: ids.length });
-    fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items: ids, email: email, nombre: nombre }) })
+    fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items: ids, email: email, nombre: nombre, cupon: CUP ? CUP.codigo : "" }) })
       .then(function (r) { return r.json().then(function (d) { if (!r.ok || !d.url) throw new Error(d.error || "error"); return d; }); })
       .then(function (d) { location.href = d.url; })
       .catch(function () {

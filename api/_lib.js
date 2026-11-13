@@ -39,10 +39,23 @@ async function promoVigente() {
 }
 
 // Arma la lista de productos con el precio final (igual que la web: descuento redondeado por producto)
-async function armarPedido(ids) {
+// ---------- Códigos de descuento (variable CUPONES en Vercel: {"REDPM40": 40}) ----------
+function cuponValido(codigo) {
+  const c = String(codigo || "").trim().toUpperCase();
+  if (!c) return null;
+  let mapa = {};
+  try { mapa = JSON.parse(process.env.CUPONES || "{}"); } catch (e) { console.error("CUPONES no es un JSON válido"); }
+  const pct = +mapa[c];
+  return pct > 0 && pct < 100 ? { codigo: c, porcentaje: pct } : null;
+}
+
+async function armarPedido(ids, codigo) {
   if (!Array.isArray(ids) || !ids.length || ids.length > 60) throw new Error("Pedido vacío");
   const vistos = new Set();
-  const promo = await promoVigente();
+  const vigente = await promoVigente();
+  const cupon = cuponValido(codigo);
+  // No se suman: se aplica el descuento más alto entre la promo y el código.
+  const promo = cupon && (!vigente || cupon.porcentaje > vigente.porcentaje) ? { porcentaje: cupon.porcentaje, etiqueta: "Código " + cupon.codigo } : vigente;
   const items = [];
   for (const crudo of ids) {
     const id = normalizar(String(crudo));
@@ -138,4 +151,4 @@ async function avisarCompraMeta({ pedido, email, nombre, monto, ids, fecha }) {
 const fmt = (n) => "$" + Math.round(n).toLocaleString("es-AR");
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
-module.exports = { SITE, CATALOGO, activo, armarPedido, linksDe, mp, enviarEmail, avisarCompraMeta, fmt, esc, normalizar };
+module.exports = { SITE, CATALOGO, activo, armarPedido, cuponValido, linksDe, mp, enviarEmail, avisarCompraMeta, fmt, esc, normalizar };

@@ -42,3 +42,9 @@ cuando Mercado Pago confirma el pago. Así la compra se cuenta aunque el cliente
 2. En Vercel → Settings → Environment Variables: `META_CAPI_TOKEN` con ese token (Production). Redeploy.
 
 Los dos avisos llevan el mismo id (`compra-` + código del pedido): Meta cuenta la compra una sola vez.
+
+## Códigos de descuento (Red Proyecta Más)
+Variable `CUPONES` en Vercel, en una línea: `{"REDPM40": 40}` (código: porcentaje). Se pueden cargar varios.
+- El código lo ven solo los registrados en red.proyectamas.com.ar (tabla `red_beneficios`). Si lo cambiás allá, cambialo acá también.
+- El botón "Ir a la tienda" de la Red abre la tienda con `?cupon=CODIGO` y se aplica solo.
+- No se suma con la promo vigente: se aplica el descuento más alto de los dos.
