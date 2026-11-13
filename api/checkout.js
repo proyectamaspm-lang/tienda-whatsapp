@@ -13,7 +13,8 @@ module.exports = async (req, res) => {
     const nombre = String(body.nombre || "").trim().slice(0, 80);
     if (!EMAIL_OK.test(email)) return res.status(400).json({ error: "Revisá el email" });
 
-    const { items, total, promo } = await armarPedido(body.items, body.cupon);
+    const { items, total, promo, cupon } = await armarPedido(body.items, body.cupon, email, true);
+    if (body.cupon && !cupon) return res.status(400).json({ error: "cupon" });
     const codigo = "PM-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 6).toUpperCase();
     // La referencia lleva también el email (respaldo para la entrega), si entra en los 64 caracteres.
     // Mercado Pago solo acepta letras, números, guiones y guion bajo en ese campo: el email va codificado.

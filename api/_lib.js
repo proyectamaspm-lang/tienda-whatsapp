@@ -39,21 +39,37 @@ async function promoVigente() {
 }
 
 // Arma la lista de productos con el precio final (igual que la web: descuento redondeado por producto)
-// ---------- Códigos de descuento (variable CUPONES en Vercel: {"REDPM40": 40}) ----------
-function cuponValido(codigo) {
+// ---------- Códigos de descuento ----------
+// 1) Códigos personales de la Red: valen solo pagando con el email de esa cuenta (los valida la base de la Red).
+// 2) Códigos generales opcionales: variable CUPONES en Vercel, ej. {"NAVIDAD10": 10}.
+const RED_URL = process.env.RED_SB_URL || "https://juruidkvovpydbsnfnwk.supabase.co";
+const RED_KEY = process.env.RED_SB_KEY || "sb_publishable_cJUGcGyuJVlR8OpRs2lPgw_pLqR9txk";
+async function cuponValido(codigo, email, registrar) {
   const c = String(codigo || "").trim().toUpperCase();
   if (!c) return null;
+  if (c.startsWith("RED-")) {
+    if (!email) return null;
+    try {
+      const r = await fetch(RED_URL + "/rest/v1/rpc/validar_cupon_red", {
+        method: "POST",
+        headers: { apikey: RED_KEY, Authorization: "Bearer " + RED_KEY, "Content-Type": "application/json" },
+        body: JSON.stringify({ p_codigo: c, p_email: String(email).trim().toLowerCase(), p_registrar: !!registrar }),
+      });
+      const pct = r.ok ? +(await r.json()) : 0;
+      return pct > 0 && pct < 100 ? { codigo: c, porcentaje: pct } : null;
+    } catch (e) { console.error("cupón Red:", e.message); return null; }
+  }
   let mapa = {};
   try { mapa = JSON.parse(process.env.CUPONES || "{}"); } catch (e) { console.error("CUPONES no es un JSON válido"); }
   const pct = +mapa[c];
   return pct > 0 && pct < 100 ? { codigo: c, porcentaje: pct } : null;
 }
 
-async function armarPedido(ids, codigo) {
+async function armarPedido(ids, codigo, email, registrar) {
   if (!Array.isArray(ids) || !ids.length || ids.length > 60) throw new Error("Pedido vacío");
   const vistos = new Set();
   const vigente = await promoVigente();
-  const cupon = cuponValido(codigo);
+  const cupon = await cuponValido(codigo, email, registrar);
   // No se suman: se aplica el descuento más alto entre la promo y el código.
   const promo = cupon && (!vigente || cupon.porcentaje > vigente.porcentaje) ? { porcentaje: cupon.porcentaje, etiqueta: "Código " + cupon.codigo } : vigente;
   const items = [];
@@ -66,7 +82,7 @@ async function armarPedido(ids, codigo) {
     const precio = promo ? Math.round((prod.precio * (100 - promo.porcentaje)) / 100) : prod.precio;
     items.push({ id, nombre: prod.nombre, precio });
   }
-  return { items, total: items.reduce((a, x) => a + x.precio, 0), promo };
+  return { items, total: items.reduce((a, x) => a + x.precio, 0), promo, cupon };
 }
 
 // ---------- Links de entrega (variable ENTREGAS en Vercel, nunca en el código público) ----------

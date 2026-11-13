@@ -43,8 +43,7 @@ cuando Mercado Pago confirma el pago. Así la compra se cuenta aunque el cliente
 
 Los dos avisos llevan el mismo id (`compra-` + código del pedido): Meta cuenta la compra una sola vez.
 
-## Códigos de descuento (Red Proyecta Más)
-Variable `CUPONES` en Vercel, en una línea: `{"REDPM40": 40}` (código: porcentaje). Se pueden cargar varios.
-- El código lo ven solo los registrados en red.proyectamas.com.ar (tabla `red_beneficios`). Si lo cambiás allá, cambialo acá también.
-- El botón "Ir a la tienda" de la Red abre la tienda con `?cupon=CODIGO` y se aplica solo.
-- No se suma con la promo vigente: se aplica el descuento más alto de los dos.
+## Códigos de descuento
+- **Códigos de la Red (RED-XXXXXX):** cada registrado en red.proyectamas.com.ar tiene el suyo. Solo vale pagando con el email de su cuenta, y los archivos llegan a ese email. Lo valida la base de la Red (función `validar_cupon_red`); cada uso queda anotado en `red_cupones_usos`. El porcentaje se cambia en la tabla `red_beneficios` (`cupon_tienda_pct`). Para anular un código: `red_cupones.activo = false`.
+- **Códigos generales (opcional):** variable `CUPONES` en Vercel, ej. `{"NAVIDAD10": 10}`. Estos sí los puede usar cualquiera.
+- No se suman con la promo vigente: se aplica el descuento más alto.

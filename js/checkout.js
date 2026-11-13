@@ -17,9 +17,11 @@
 
   fetch("/api/estado").then(function (r) { return r.json(); }).then(function (e) { if (e && e.activo) iniciar(); }).catch(function () {});
 
+  var codPend = ""; /* código recibido que todavía no se pudo validar (falta el email) */
   function probarCupon(cod, cb) {
     cod = String(cod || "").trim().toUpperCase(); if (!cod) { cb && cb(false); return; }
-    fetch("/api/cupon?c=" + encodeURIComponent(cod)).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+    var em = ($("#pm-e") && $("#pm-e").value.trim()) || "";
+    fetch("/api/cupon?c=" + encodeURIComponent(cod) + "&e=" + encodeURIComponent(em)).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
       if (d && d.ok) { CUP = { codigo: d.codigo, porcentaje: d.porcentaje }; try { localStorage.setItem("pm_cupon", d.codigo); } catch (e) {} cb && cb(true); }
       else cb && cb(false);
     }).catch(function () { cb && cb(false); });
@@ -27,10 +29,10 @@
 
   function iniciar() {
     /* Código que viene desde la Red (?cupon=) o guardado de una visita anterior */
-    var qc = new URLSearchParams(location.search).get("cupon"), guardado = "";
-    try { guardado = localStorage.getItem("pm_cupon") || ""; } catch (e) {}
-    if (qc || guardado) probarCupon(qc || guardado, function (ok) { if (!ok) try { localStorage.removeItem("pm_cupon"); } catch (e) {} });
-    if (qc) try { var u = new URLSearchParams(location.search); u.delete("cupon"); history.replaceState(null, "", location.pathname + (u.toString() ? "?" + u : "") + location.hash); } catch (e) {}
+    var qs = new URLSearchParams(location.search), qc = qs.get("cupon"), qe = qs.get("email"), guardado = "";
+    try { guardado = localStorage.getItem("pm_cupon") || ""; if (qe) localStorage.setItem("pm_email", qe); } catch (e) {}
+    codPend = (qc || guardado || "").toUpperCase();
+    if (qc) try { var u = new URLSearchParams(location.search); u.delete("cupon"); u.delete("email"); history.replaceState(null, "", location.pathname + (u.toString() ? "?" + u : "") + location.hash); } catch (e) {}
     document.body.classList.add("pago-auto");
     var go = $("#cart-go"); if (go) { go.textContent = "Ir a pagar ❯"; go.removeAttribute("target"); }
     document.querySelectorAll("[data-auto]").forEach(function (el) { el.innerHTML = el.getAttribute("data-auto"); });
@@ -94,10 +96,8 @@
     caja.addEventListener("click", function (e) { if (e.target === caja || e.target.classList.contains("x")) cerrar(); });
     addEventListener("keydown", function (e) { if (e.key === "Escape" && !caja.hidden) cerrar(); });
     $("#pm-form").addEventListener("submit", pagar);
-    $("#pm-ca").addEventListener("click", function () {
-      var v = $("#pm-c").value; $("#pm-cm").textContent = "Revisando…";
-      probarCupon(v, function (ok) { $("#pm-cm").textContent = ok ? "Código aplicado: " + CUP.porcentaje + "% OFF" : "Ese código no es válido."; if (ok) abrir(ids, wsp); });
-    });
+    $("#pm-ca").addEventListener("click", aplicar);
+    $("#pm-e").addEventListener("change", function () { if ($("#pm-c").value.trim()) aplicar(); });
     try { $("#pm-e").value = localStorage.getItem("pm_email") || ""; $("#pm-n").value = localStorage.getItem("pm_nombre") || ""; } catch (e) {}
   }
 
@@ -108,9 +108,21 @@
     $("#pm-tot").textContent = fmt(tot);
     $("#pm-cuo").textContent = "o 3 cuotas sin interés de " + fmt(Math.ceil(tot / 3)) + (pct() ? " · con " + pct() + "% OFF aplicado" : "");
     if (CUP) { $("#pm-c").value = CUP.codigo; $("#pm-cm").textContent = "Código aplicado: " + CUP.porcentaje + "% OFF"; }
+    else if (codPend) { $("#pm-c").value = codPend; codPend = ""; if ($("#pm-e").value.trim()) setTimeout(aplicar, 0); }
     $("#pm-ws").href = wsp; $("#pm-err").hidden = true;
     caja.hidden = false; document.body.style.overflow = "hidden";
     setTimeout(function () { ($("#pm-e").value ? $(".pagar", caja) : $("#pm-n").value ? $("#pm-e") : $("#pm-n")).focus(); }, 50);
+  }
+  function aplicar() {
+    var v = $("#pm-c").value.trim(); if (!v) return;
+    if (/^RED-/i.test(v) && !$("#pm-e").value.trim()) { $("#pm-cm").textContent = "Poné primero el email de tu cuenta de la Red."; $("#pm-e").focus(); return; }
+    $("#pm-cm").textContent = "Revisando…";
+    probarCupon(v, function (ok) {
+      if (!ok) { CUP = null; try { localStorage.removeItem("pm_cupon"); } catch (e) {} }
+      abrir(ids, wsp);
+      $("#pm-c").value = v.toUpperCase();
+      $("#pm-cm").textContent = ok ? "Código aplicado: " + CUP.porcentaje + "% OFF" : (/^RED-/i.test(v) ? "Este código es personal: vale solo con el email de la cuenta de la Red a la que pertenece." : "Ese código no es válido.");
+    });
   }
   function cerrar() { caja.hidden = true; document.body.style.overflow = ""; }
 
@@ -120,6 +132,7 @@
     e.preventDefault();
     var email = $("#pm-e").value.trim(), nombre = $("#pm-n").value.trim(), btn = $(".pagar", caja);
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { error("Revisá el email, así te llegan los archivos."); $("#pm-e").focus(); return; }
+    if ($("#pm-c").value.trim() && !CUP) { error("El código no está aplicado. Tocá Aplicar o borralo para pagar sin descuento."); return; }
     try { localStorage.setItem("pm_email", email); localStorage.setItem("pm_nombre", nombre); } catch (er) {}
     btn.disabled = true; btn.textContent = "Abriendo Mercado Pago…"; $("#pm-err").hidden = true;
     if (window.fbq) fbq("track", "AddPaymentInfo", { value: ids.reduce(function (a, id) { return a + precio(VID[id][1]); }, 0), currency: "ARS", num_items: ids.length });
