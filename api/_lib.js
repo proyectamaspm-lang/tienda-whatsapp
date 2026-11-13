@@ -44,6 +44,8 @@ async function promoVigente() {
 // 2) Códigos generales opcionales: variable CUPONES en Vercel, ej. {"NAVIDAD10": 10}.
 const RED_URL = process.env.RED_SB_URL || "https://juruidkvovpydbsnfnwk.supabase.co";
 const RED_KEY = process.env.RED_SB_KEY || "sb_publishable_cJUGcGyuJVlR8OpRs2lPgw_pLqR9txk";
+const SW_URL = process.env.SW_SB_URL || "https://clkttchvmsrpguxpkkbt.supabase.co";
+const SW_KEY = process.env.SW_SB_KEY || "sb_publishable_V3yamYnhlfQM3uIb4hdqsw_28_3NBAF";
 async function cuponValido(codigo, email, registrar) {
   const c = String(codigo || "").trim().toUpperCase();
   if (!c) return null;
@@ -58,6 +60,19 @@ async function cuponValido(codigo, email, registrar) {
       const pct = r.ok ? +(await r.json()) : 0;
       return pct > 0 && pct < 100 ? { codigo: c, porcentaje: pct } : null;
     } catch (e) { console.error("cupón Red:", e.message); return null; }
+  }
+  // 2) Códigos de empresas clientes del software (SW-XXXXXX): los valida la base del centro de mando
+  if (c.startsWith("SW-")) {
+    if (!email) return null;
+    try {
+      const r = await fetch(SW_URL + "/rest/v1/rpc/validar_cupon_sw", {
+        method: "POST",
+        headers: { apikey: SW_KEY, Authorization: "Bearer " + SW_KEY, "Content-Type": "application/json" },
+        body: JSON.stringify({ p_codigo: c, p_email: String(email).trim().toLowerCase() }),
+      });
+      const pct = r.ok ? +(await r.json()) : 0;
+      return pct > 0 && pct < 100 ? { codigo: c, porcentaje: pct } : null;
+    } catch (e) { console.error("cupón software:", e.message); return null; }
   }
   let mapa = {};
   try { mapa = JSON.parse(process.env.CUPONES || "{}"); } catch (e) { console.error("CUPONES no es un JSON válido"); }

@@ -115,13 +115,13 @@
   }
   function aplicar() {
     var v = $("#pm-c").value.trim(); if (!v) return;
-    if (/^RED-/i.test(v) && !$("#pm-e").value.trim()) { $("#pm-cm").textContent = "Poné primero el email de tu cuenta de la Red."; $("#pm-e").focus(); return; }
+    if (/^(RED|SW)-/i.test(v) && !$("#pm-e").value.trim()) { $("#pm-cm").textContent = "Poné primero el email de tu cuenta."; $("#pm-e").focus(); return; }
     $("#pm-cm").textContent = "Revisando…";
     probarCupon(v, function (ok) {
       if (!ok) { CUP = null; try { localStorage.removeItem("pm_cupon"); } catch (e) {} }
       abrir(ids, wsp);
       $("#pm-c").value = v.toUpperCase();
-      $("#pm-cm").textContent = ok ? "Código aplicado: " + CUP.porcentaje + "% OFF" : (/^RED-/i.test(v) ? "Este código es personal: vale solo con el email de la cuenta de la Red a la que pertenece." : "Ese código no es válido.");
+      $("#pm-cm").textContent = ok ? "Código aplicado: " + CUP.porcentaje + "% OFF" : (/^(RED|SW)-/i.test(v) ? "Este código es personal: vale solo con el email de la cuenta a la que pertenece." : "Ese código no es válido.");
     });
   }
   function cerrar() { caja.hidden = true; document.body.style.overflow = ""; }
