@@ -1,4 +1,10 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/pages/planillas-para-presupuestar-tu-obra", "destination": "/planillas", "permanent": true },
+    { "source": "/pages/:slug*", "destination": "/", "permanent": false },
+    { "source": "/products/:slug*", "destination": "/planillas", "permanent": false },
+    { "source": "/collections/:slug*", "destination": "/planillas", "permanent": false }
+  ]
 }
